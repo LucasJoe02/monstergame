@@ -9,6 +9,9 @@ package main;
  * @author Lucas Redding
  */
 public class GameEnvironment {
+	
+	static final int EASY_START_GOLD = 20;
+	static final int HARD_START_GOLD = 10;
 
 	private Player player;
 	private Shop shop;
@@ -30,8 +33,15 @@ public class GameEnvironment {
 		return player;
 	}
 	
-	public void setPlayer() {
+	public void setPlayer(String name, Monster startMonster) {
 		player = new Player();
+		player.setName(name);
+		player.getSquad().addMonster(startMonster);
+		if (difficulty == 1) {
+			player.increaseGold(EASY_START_GOLD);
+		}else {
+			player.increaseGold(HARD_START_GOLD);
+		}
 	}
 	
 	public Shop getShop() {

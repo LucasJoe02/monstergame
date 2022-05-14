@@ -100,9 +100,9 @@ public class CommandLineUI {
 		int difficulty;
 		String difficultyInputString;
 		do {
-			System.out.print("Enter a difficulty level from 1 to 3 (1-Easy,2-Medium,3-Hard): ");
+			System.out.print("Enter a difficulty level from 1 to 2 (1-Easy,2-Hard): ");
 			difficultyInputString = scanner.nextLine();
-		}while(!isInputNumValid(difficultyInputString,1,3));
+		}while(!isInputNumValid(difficultyInputString,1,2));
 		difficulty = Integer.parseInt(difficultyInputString);
 		return difficulty;
 	}
@@ -119,6 +119,9 @@ public class CommandLineUI {
 		chosenMonster = chooseStartMonster();
 		difficulty = chooseDifficulty();
 		
+		game.setDifficulty(difficulty);
+		game.setMaxDays(days);
+		game.setPlayer(userName, chosenMonster);
 		
 	}
 
