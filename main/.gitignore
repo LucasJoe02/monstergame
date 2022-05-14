@@ -1,3 +1,8 @@
 /package-info.class
 /GameEnvironment.class
 /CommandLineUI.class
+/Purchasable.class
+/Monster.class
+/MonsterBuilder.class
+/MonsterBuilderImpl.class
+/MonsterCreator.class
