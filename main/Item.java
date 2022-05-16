@@ -4,8 +4,14 @@
 package main;
 
 /**
+ * This class implements an Item which can be bought
+ * from the shop by the player as it implements the
+ * Purchasable interface. The Item can be stored by
+ * the player and then used on one of the Monsters
+ * in the player's squad to increase one of its stats.
+ * 
  * @author Lucas Redding
- *
+ * @version 1.1, May 2022.
  */
 public class Item implements Purchasable {
 

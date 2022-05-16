@@ -6,8 +6,14 @@ package main;
 import java.util.Random;
 
 /**
+ * This class is used by other classes as a part of the
+ * builder design pattern for making new Monsters.
+ * The class provides the functionality to build a
+ * randomised Monster of either a specific rarity or
+ * also a random rarity. 
+ * 
  * @author Lucas Redding
- *
+ * @version 1.1, May 2022.
  */
 public class MonsterCreator {
 	

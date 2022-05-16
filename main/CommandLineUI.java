@@ -8,8 +8,15 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * This class implements a command line UI
+ * that the player interacts with to receive
+ * output from the game. The player can use
+ * this command line to setup the game, view
+ * stats, view squad, visit the shop and arena
+ * and progress through the game.
+ * 
  * @author Lucas Redding
- *
+ * @version 1.1, May 2022.
  */
 public class CommandLineUI {
 

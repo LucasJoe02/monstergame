@@ -6,8 +6,15 @@ package main;
 import java.util.ArrayList;
 
 /**
+ * This class implements a Player which stores all
+ * of the information about the person currently 
+ * playing the game or an in game enemy of the person.
+ * The player has a squad of Monsters that it uses to
+ * fight against the squad of an enemy in order to earn
+ * points and gold.
+ * 
  * @author Lucas Redding
- *
+ * @version 1.1, May 2022.
  */
 public class Player {
 	

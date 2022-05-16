@@ -4,8 +4,14 @@
 package main;
 
 /**
+ * This class implements the MonsterBuilder interface
+ * and is responsible for adding variables defined by
+ * MonsterCreator to the Monster currently being built
+ * and then building the Monster which can then be used
+ * throughout the game.
+ * 
  * @author Lucas Redding
- *
+ * @version 1.1, May 2022.
  */
 public class MonsterBuilderImpl implements MonsterBuilder {
 

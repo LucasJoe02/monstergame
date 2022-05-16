@@ -5,8 +5,14 @@ package main;
 
 /**
  * This class controls all of the objects and information
- * about the current game being played. 
+ * about the current game being played. Including the
+ * current user player, the game shop, arena and keeps
+ * track of the day and difficulty. It provides the
+ * functionality for the user to utilize the parts of
+ * the game and progress.
+ * 
  * @author Lucas Redding
+ * @version 1.1, May 2022.
  */
 public class GameEnvironment {
 	
