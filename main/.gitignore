@@ -11,3 +11,7 @@
 /Arena.class
 /Squad.class
 /Item.class
+/ItemHeal.class
+/ItemIncHealSpd.class
+/ItemIncMaxHP.class
+/ItemIncreaseAttack.class

@@ -15,20 +15,34 @@ package main;
  */
 public class MonsterBuilderImpl implements MonsterBuilder {
 
-	private String name;
-	private int level;
-	private int maxHealth;
-	private int attackDamage;
-	private int healAmount;
-	private String rarity;
-	Monster monster;
-	
-	/**
-	 * 
+	/** 
+	 * The name of the Monster being built.
 	 */
-	public MonsterBuilderImpl() {
-		// TODO Auto-generated constructor stub
-	}
+	private String name;
+	/** 
+	 * The level of the Monster being built.
+	 */
+	private int level;
+	/** 
+	 * The maximum health of the Monster being built.
+	 */
+	private int maxHealth;
+	/** 
+	 * The attack damage of the Monster being built.
+	 */
+	private int attackDamage;
+	/** 
+	 * The healing amount of the Monster being built.
+	 */
+	private int healAmount;
+	/** 
+	 * The rarity of the Monster being built.
+	 */
+	private String rarity;
+	/** 
+	 * The Monster being built.
+	 */
+	Monster monster;
 
 	@Override
 	public MonsterBuilder withName(String name) {
