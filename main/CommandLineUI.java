@@ -153,6 +153,9 @@ public class CommandLineUI {
 		}while(!isInputNumValid(monsterIndexString,0,availableMonsters.size()-1));
 		int monsterIndex = Integer.parseInt(monsterIndexString);
 		chosenMonster = availableMonsters.get(monsterIndex);
+		System.out.print("Enter a name for your Monster (leave blank for default name): ");
+		String newMonsterName = scanner.nextLine();
+		if (newMonsterName != "") {chosenMonster.setName(newMonsterName);}
 		return chosenMonster;
 	}
 	
