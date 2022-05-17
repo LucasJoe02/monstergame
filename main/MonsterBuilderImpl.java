@@ -42,7 +42,7 @@ public class MonsterBuilderImpl implements MonsterBuilder {
 	/** 
 	 * The Monster being built.
 	 */
-	Monster monster;
+	private Monster monster;
 
 	@Override
 	public MonsterBuilder withName(String name) {
