@@ -12,6 +12,12 @@
 /Squad.class
 /Item.class
 /ItemHeal.class
+<<<<<<< HEAD
 /ItemIncreaseAttack.class
 /ItemIncMaxHP.class
 /ItemIncHealSpd.class
+=======
+/ItemIncHealSpd.class
+/ItemIncMaxHP.class
+/ItemIncreaseAttack.class
+>>>>>>> branch 'master' of https://eng-git.canterbury.ac.nz/lre61/seng201-2022-group-042.git

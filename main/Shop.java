@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * items and monsters for gold.
  * 
  * @author Lucas Redding
+ * @author Celeste Turnock
  * @version 1.1, May 2022.
  */
 public class Shop {
@@ -37,11 +38,23 @@ public class Shop {
 	}
 	
 	public void displayStock() {
+		int num = 0;
+		System.out.println("Welcome to the Store! Below is everything available to purchase!");
+		for (Purchasable p:stock) {
+			int desc = p.getPurchasePrice();
+			System.out.println(num + desc);
+		}
+		
 		
 	}
 	
-	public void purchase(Purchasable product) {
-		
-	}
-
+	public void purchase(int index) {
+		/* Purchasable buy = stock.get(index);
+		 *if (index < 3) {
+			*Squad.addMonster(buy);
+		*} else {
+		*	Player.addItem(buy);
+		*}
+	*}
+*/
 }
