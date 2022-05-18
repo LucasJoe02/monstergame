@@ -217,15 +217,19 @@ public class CommandLineUI {
 		System.out.println("Below is a list of available options.");
 		System.out.println("Above each monster is it's number.");
 		System.out.println("Enter the number of the option you wish to select below.");
-		System.out.println("0\nView your monster squad.");
-		System.out.println("1\nView your item inventory.");
-		System.out.println("2\nEnter the battle arena.");
-		System.out.println("3\nVisit the shop.");
+		System.out.println("0\nView your monster squad.\n");
+		System.out.println("1\nView your item inventory.\n");
+		System.out.println("2\nEnter the battle arena.\n");
+		System.out.println("3\nVisit the shop.\n");
 		System.out.println("4\nGo to sleep.");
 	}
 	
 	public void viewSquad() {
-		
+		for (int i = 0; i < game.getPlayer().getSquad().getMonsters().size(); i++) {
+			System.out.println();
+			System.out.println(i);
+			System.out.println(game.getPlayer().getSquad().getMonsters().get(i));
+		}
 	}
 	
 	public void viewInventory() {
