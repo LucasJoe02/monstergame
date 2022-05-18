@@ -1,6 +1,6 @@
 package main;
 
-public class ItemIncHealSpd implements Item, Purchasable {
+public class ItemIncHealSpd implements Item {
 
 	private String name;
 	private int increaseAmount;

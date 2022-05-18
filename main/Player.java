@@ -37,7 +37,7 @@ public class Player {
 	/** 
 	 * The list of items that this player has.
 	 */
-	private ArrayList<Item> items;
+	private static ArrayList<Item> items;
 
 
 	/**
@@ -119,7 +119,7 @@ public class Player {
 	 * Add and item to the list of items of this player.
 	 * @param newItem the item to add to the list of items of this player.
 	 */
-	public void addItem(Item newItem) {
+	public static void addItem(Item newItem) {
 		items.add(newItem);
 	}
 	

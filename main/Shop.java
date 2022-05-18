@@ -19,7 +19,8 @@ public class Shop {
 	/**
 	 * 
 	 */
-	private ArrayList<Purchasable> stock;
+	private ArrayList<Monster> monsters;
+	private ArrayList<Item> stock;
 	private MonsterCreator monsterCreator;
 	private ItemIncMaxHP itemMax;
 	private ItemHeal itemHeal;
@@ -28,33 +29,40 @@ public class Shop {
 	
 	
 	public void refreshStock() {
-		stock.add(0, monsterCreator.createCommon());
-		stock.add(1, monsterCreator.createRare());
-		stock.add(2, monsterCreator.createRandom());
-		stock.add(3, itemMax);
-		stock.add(4, itemHeal);
-		stock.add(5, itemAttack);
-		stock.add(6, itemHPSpd);
+		monsters.add(0, monsterCreator.createCommon());
+		monsters.add(1, monsterCreator.createRare());
+		monsters.add(2, monsterCreator.createRandom());
+		stock.add(0, itemMax);
+		stock.add(1, itemHeal);
+		stock.add(2, itemAttack);
+		stock.add(3, itemHPSpd);
 	}
 	
 	public void displayStock() {
 		int num = 0;
 		System.out.println("Welcome to the Store! Below is everything available to purchase!");
-		for (Purchasable p:stock) {
-			int desc = p.getPurchasePrice();
+		for (Monster q:monsters) {
+			String desc =q.getDesc();
 			System.out.println(num + desc);
+			num+= 1;
+		}
+		for (Item p:stock) {
+			String desc = p.getDesc();
+			System.out.println(num + desc);
+			num += 1;
 		}
 		
 		
 	}
 	
-//	public void purchase(int index) {
-		/* Purchasable buy = stock.get(index);
-		 *if (index < 3) {
-			*Squad.addMonster(buy);
-		*} else {
-		*	Player.addItem(buy);
-		*}
-	*}
-*/
+	public void purchase(int index) {
+		 if (index < 3) {
+			Monster buy = monsters.get(index);
+			Squad.addMonster(buy);
+		} else {
+			Item ite = stock.get(index-4);
+			Player.addItem(ite);
+		}
+	}
+
 }

@@ -19,7 +19,7 @@ public class Squad {
 	/** 
 	 * A list of Monsters associated with this squad.
 	 */
-	ArrayList<Monster> monsters;
+	static ArrayList<Monster> monsters;
 	
 	/**
 	 * Instantiates the variables for this Squad.
@@ -40,7 +40,7 @@ public class Squad {
 	 * Adds a given Monster to this squad.
 	 * @param newMonster the new Monster to be added to this squad.
 	 */
-	public void addMonster(Monster newMonster) {
+	public static void addMonster(Monster newMonster) {
 		monsters.add(newMonster);
 	}
 

@@ -1,6 +1,6 @@
 package main;
 
-public class ItemIncreaseAttack implements Item, Purchasable{
+public class ItemIncreaseAttack implements Item{
 
 	private String name;
 	private int increaseAmount;

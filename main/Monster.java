@@ -15,7 +15,7 @@ import java.util.Random;
  * @author Lucas Redding
  * @version 1.1, May 2022.
  */
-public class Monster implements Purchasable {
+public class Monster {
 	
 	/** 
 	 * The default purchase price of any Monster of "Super Epic" rarity.
@@ -86,6 +86,10 @@ public class Monster implements Purchasable {
 	 * The amount a random stat increases when the Monster levels up.
 	 */
 	private int levelUpBonus;
+	/**
+	 * A description of the monster
+	 */
+	private String desc;
 	
 	/**
 	 * Creates a new Monster based on given parameters.
@@ -169,6 +173,14 @@ public class Monster implements Purchasable {
 	 */
 	public int getAttackDamage() {
 		return attackDamage;
+	}
+	
+	/**
+	 * Gets the description of this Monster.
+	 * @return this Monster's description
+	 */
+	public String getDesc() {
+		return desc;
 	}
 	
 	/**
@@ -259,12 +271,12 @@ public class Monster implements Purchasable {
 		}
 	}
 
-	@Override
+	
 	public int getPurchasePrice() {
 		return purchasePrice;
 	}
 
-	@Override
+	
 	public int getResellPrice() {
 		return resellPrice;
 	}

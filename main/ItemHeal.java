@@ -1,6 +1,6 @@
 package main;
 
-public class ItemHeal implements Item, Purchasable {
+public class ItemHeal implements Item {
 
 	private String name;
 	private int increaseAmount;

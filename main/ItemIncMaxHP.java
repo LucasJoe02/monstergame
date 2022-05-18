@@ -1,6 +1,6 @@
 package main;
 
-public class ItemIncMaxHP implements Item, Purchasable{
+public class ItemIncMaxHP implements Item{
 
 	private String name;
 	private int increaseAmount;
