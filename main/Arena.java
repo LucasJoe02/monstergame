@@ -40,7 +40,7 @@ public class Arena {
 	}
 	
 	public void battle(Player player, int index) {
-		
+		getEnemies();
 	}
 
 }
