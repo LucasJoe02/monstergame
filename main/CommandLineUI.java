@@ -126,6 +126,18 @@ public class CommandLineUI {
 	}
 	
 	/**
+	 * Asks the player for input to rename a given monster.
+	 * @param monster the Monster the user is choosing a new name for.
+	 * @return the renamed Monster.
+	 */
+	public Monster pickMonsterName(Monster monster) {
+		System.out.print("Enter a name for your Monster (leave blank for default name): ");
+		String newMonsterName = scanner.nextLine();
+		if (newMonsterName != "") {monster.setName(newMonsterName);}
+		return monster;
+	}
+	
+	/**
 	 * Asks for the user to select a starter monster from a given list of monsters, then returns the monster chosen.
 	 * The available monsters is set as a list of newly created common monsters.
 	 * The list of monsters is printed to the standard input along with their id numbers.
@@ -153,9 +165,7 @@ public class CommandLineUI {
 		}while(!isInputNumValid(monsterIndexString,0,availableMonsters.size()-1));
 		int monsterIndex = Integer.parseInt(monsterIndexString);
 		chosenMonster = availableMonsters.get(monsterIndex);
-		System.out.print("Enter a name for your Monster (leave blank for default name): ");
-		String newMonsterName = scanner.nextLine();
-		if (newMonsterName != "") {chosenMonster.setName(newMonsterName);}
+		chosenMonster = pickMonsterName(chosenMonster);
 		return chosenMonster;
 	}
 	
