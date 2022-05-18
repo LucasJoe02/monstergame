@@ -219,11 +219,16 @@ public class CommandLineUI {
 		System.out.println("Enter the number of the option you wish to select below.\n");
 		System.out.println("0\nView your monster squad.\n");
 		System.out.println("1\nView your item inventory.\n");
-		System.out.println("2\nEnter the battle arena.\n");
-		System.out.println("3\nVisit the shop.\n");
+		System.out.println("2\nVisit the shop.\n");
+		System.out.println("3\nEnter the battle arena.\n");
 		System.out.println("4\nGo to sleep.\n");
 	}
 	
+	/**
+	 * Displays a list of all of the user player's squad of monsters.
+	 * The monsters and their stats are displayed in the order they battle in.
+	 * On pressing enter the game loop is called to return to the main game loop.
+	 */
 	public void viewSquad() {
 		System.out.println("\nHi "+game.getPlayer().getName()+".");
 		System.out.println("Below is a description of each of your monsters\nIn the same order they will fight in battles.");
@@ -237,6 +242,11 @@ public class CommandLineUI {
 		gameLoop();
 	}
 	
+	/**
+	 * Displays a list of all of the user player's inventory of items.
+	 * The items are displayed with their name above their description.
+	 * On pressing enter the game loop is called to return to the main game loop.
+	 */
 	public void viewInventory() {
 		System.out.println("\nHi "+game.getPlayer().getName()+".");
 		System.out.println("Below is a description of each of your items");
@@ -250,11 +260,11 @@ public class CommandLineUI {
 		gameLoop();
 	}
 	
-	public void enterArena() {
+	public void visitShop() {
 		
 	}
 	
-	public void visitShop() {
+	public void enterArena() {
 		
 	}
 	
@@ -285,10 +295,10 @@ public class CommandLineUI {
 				viewInventory();
 				break;
 			case 2:
-				enterArena();
+				visitShop();
 				break;
 			case 3:
-				visitShop();
+				enterArena();
 				break;
 			case 4:
 				sleep();
