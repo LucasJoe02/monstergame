@@ -48,7 +48,7 @@ public class Shop {
 		
 	}
 	
-	public void purchase(int index) {
+//	public void purchase(int index) {
 		/* Purchasable buy = stock.get(index);
 		 *if (index < 3) {
 			*Squad.addMonster(buy);
