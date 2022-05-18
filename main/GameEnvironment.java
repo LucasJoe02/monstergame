@@ -144,7 +144,7 @@ public class GameEnvironment {
 	/** 
 	 * Sets the difficulty of this game.
 	 * 1 is easy and 2 is hard.
-	 * @param the integer difficulty to set for this game.
+	 * @param difficulty the integer difficulty to set for this game.
 	 */
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;

@@ -128,7 +128,7 @@ public class CommandLineUI {
 	/**
 	 * Asks the player for input to rename a given monster.
 	 * @param monster the Monster the user is choosing a new name for.
-	 * @return the renamed Monster.
+	 * @return the monster that is the renamed Monster
 	 */
 	public Monster pickMonsterName(Monster monster) {
 		System.out.print("Enter a name for your Monster (leave blank for default name): ");
@@ -143,7 +143,7 @@ public class CommandLineUI {
 	 * The list of monsters is printed to the standard input along with their id numbers.
 	 * The user is asked to input the id number of their chosen starter monster and then the input checked for validity.
 	 * Once the input from the player is valid the chosen monster is returned.
-	 * @return the chosen starter monster. 
+	 * @return the chosen starter monster.
 	 */
 	public Monster chooseStartMonster() {
 		Monster chosenMonster;
@@ -210,7 +210,7 @@ public class CommandLineUI {
 
 	/**
 	 * The main method to create and launch the game from the command line interface.
-	 * @param args The command line arguments.
+	 * @param args the string command line arguments
 	 **/
 	public static void main(String[] args) {
 		CommandLineUI ui = new CommandLineUI();

@@ -48,7 +48,7 @@ public class MonsterCreator {
 	 * Generates a random integer from 0 to 100.
 	 * If the integer is below 70 a common Monster is generated, below 90 a Rare is generated.
 	 * Otherwise a Super Epic Monster is generated.
-	 * @returns the random Monster that was generated.
+	 * @return the random Monster that was generated.
 	 */
 	public Monster createRandom() {
 		int rand = rng.nextInt(101);
