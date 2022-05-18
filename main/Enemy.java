@@ -6,6 +6,7 @@ public class Enemy {
 
 	private GameEnvironment game;
 	private MonsterCreator monsterCreator;
+	private String place;
 	private String name;
 	private int gold;
 	private int points;
@@ -15,6 +16,7 @@ public class Enemy {
 	
 	public Enemy(GameEnvironment game) {
 		this.game = game;
+		place = "placeholder";
 		name = "";
 		gold = 0;
 		points = 0;
