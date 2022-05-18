@@ -208,6 +208,11 @@ public class CommandLineUI {
 		gameLoop();
 	}
 	
+	
+	/**
+	 * Displays to the command line all of the available daily options for the user.
+	 * Each option has a number ID above it used when the player selects one of the options.
+	 */
 	public void displayDailyOptions() {
 		System.out.println("Below is a list of available options.");
 		System.out.println("Above each monster is it's number.");
@@ -219,16 +224,60 @@ public class CommandLineUI {
 		System.out.println("4\nGo to sleep.");
 	}
 	
+	public void viewSquad() {
+		
+	}
+	
+	public void viewInventory() {
+		
+	}
+	
+	public void enterArena() {
+		
+	}
+	
+	public void visitShop() {
+		
+	}
+	
+	public void sleep() {
+		
+	}
+	
+	/**
+	 * The main loop of the game UI.
+	 * Displays the game day and player's gold to the user and then displays all of the available daily options to the user.
+	 * Reads and parses input from the player to decide which UI to call based on what option the user chooses.
+	 */
 	public void gameLoop() {
 		System.out.println("\nDay: "+game.getDay()+"/"+game.getMaxDays()+
 						   ".\nGold: "+game.getPlayer().getGold());
-		String inputOption;
+		String inputOptionString;
 		displayDailyOptions();
 		do {
 			System.out.print("Enter number of chosen option (from 0 to 4): ");
-			inputOption = scanner.nextLine();
-		}while(!isInputNumValid(inputOption,0,4));
-		
+			inputOptionString = scanner.nextLine();
+		}while(!isInputNumValid(inputOptionString,0,4));
+		int inputOption = Integer.parseInt(inputOptionString);
+		switch(inputOption) {
+		case 0:
+			viewSquad();
+			break;
+		case 1:
+			viewInventory();
+			break;
+		case 2:
+			enterArena();
+			break;
+		case 3:
+			visitShop();
+			break;
+		case 4:
+			sleep();
+			break;
+		default:
+			gameLoop();
+		}
 	}
 
 	/**
@@ -240,5 +289,4 @@ public class CommandLineUI {
 		ui.setup();
 
 	}
-
 }
