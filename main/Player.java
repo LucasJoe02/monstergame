@@ -83,6 +83,14 @@ public class Player {
 		this.gold += gold;
 	}
 	
+	/**
+	 * Decrease the gold of this player by a given amount.
+	 * @param gold the amount of gold to decrease by.
+	 */
+	public void decreaseGold(int gold) {
+		this.gold -= gold;
+	}
+	
 	/** 
 	 * Gets the points of this player.
 	 * @return the points of this player.

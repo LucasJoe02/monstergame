@@ -2,7 +2,7 @@ package main;
 
 public class ItemIncMaxHP implements Item{
 
-	private String name;
+	private String name = "Super Health!";
 	private int increaseAmount;
 	private String desc;
 	private int purchasePrice;
@@ -17,14 +17,17 @@ public class ItemIncMaxHP implements Item{
 	}
 	
 	public String getDesc() {
+		desc = name + " increases your monster's current total health amount!";
 		return desc;
 	}
 	
 	public int getPurchasePrice() {
+		purchasePrice = 10;
 		return purchasePrice;
 	}
 	
 	public int getResellPrice() {
+		resellPrice = 5;
 		return resellPrice;
 	}
 	

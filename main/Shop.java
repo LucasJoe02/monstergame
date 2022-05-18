@@ -15,6 +15,10 @@ import java.util.ArrayList;
  * @version 1.1, May 2022.
  */
 public class Shop {
+	
+	public Shop() {
+		
+	}
 
 	/**
 	 * 
@@ -58,10 +62,14 @@ public class Shop {
 	public void purchase(int index) {
 		 if (index < 3) {
 			Monster buy = monsters.get(index);
+			int price = buy.getPurchasePrice();
 			Squad.addMonster(buy);
+			decreaseGold(price);
 		} else {
 			Item ite = stock.get(index-4);
+			int price = ite.getPurchasePrice();
 			Player.addItem(ite);
+			
 		}
 	}
 

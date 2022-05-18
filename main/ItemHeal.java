@@ -2,7 +2,7 @@ package main;
 
 public class ItemHeal implements Item {
 
-	private String name;
+	private String name = "Healer!";
 	private int increaseAmount;
 	private String desc;
 	private int purchasePrice;
@@ -13,10 +13,12 @@ public class ItemHeal implements Item {
 	}
 	
 	public int getPurchasePrice() {
+		purchasePrice = 5;
 		return purchasePrice;
 	}
 	
 	public int getResellPrice() {
+		resellPrice = 3;
 		return resellPrice;
 	}
 	
@@ -25,6 +27,7 @@ public class ItemHeal implements Item {
 	}
 	
 	public String getDesc() {
+		desc = "The "+name+" increases your monster's current health by their current heal amount!";
 		return desc;
 	}
 	
