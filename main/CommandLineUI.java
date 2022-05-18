@@ -205,6 +205,29 @@ public class CommandLineUI {
 		game.setDifficulty(difficulty);
 		game.setMaxDays(days);
 		game.setPlayer(userName, chosenMonster);
+		gameLoop();
+	}
+	
+	public void displayDailyOptions() {
+		System.out.println("Below is a list of available options.");
+		System.out.println("Above each monster is it's number.");
+		System.out.println("Enter the number of the option you wish to select below.");
+		System.out.println("0\nView your monster squad.");
+		System.out.println("1\nView your item inventory.");
+		System.out.println("2\nEnter the battle arena.");
+		System.out.println("3\nVisit the shop.");
+		System.out.println("4\nGo to sleep.");
+	}
+	
+	public void gameLoop() {
+		System.out.println("\nDay: "+game.getDay()+"/"+game.getMaxDays()+
+						   ".\nGold: "+game.getPlayer().getGold());
+		String inputOption;
+		displayDailyOptions();
+		do {
+			System.out.print("Enter number of chosen option (from 0 to 4): ");
+			inputOption = scanner.nextLine();
+		}while(!isInputNumValid(inputOption,0,4));
 		
 	}
 
