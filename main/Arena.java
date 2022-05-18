@@ -3,6 +3,8 @@
  */
 package main;
 
+import java.util.ArrayList;
+
 /**
  * This class implements an Arena which organises
  * the currently available enemy players that the
@@ -16,6 +18,7 @@ package main;
 public class Arena {
 
 	private GameEnvironment game;
+	private ArrayList<Enemy> enemies;
 	
 	
 	public Arena(GameEnvironment game) {
@@ -24,10 +27,19 @@ public class Arena {
 	}
 	
 	public void refreshOpponents( ) {
-		
+		Enemy zero = new Enemy(game);
+		Enemy one = new Enemy(game);
+		Enemy two = new Enemy(game);
+		enemies.add(0, zero);
+		enemies.add(1, one);
+		enemies.add(2, two);
 	}
 	
-	public void displayOpponents() {
+	public ArrayList<Enemy> getEnemies() {
+		return enemies;
+	}
+	
+	public void battle(Player player, int index) {
 		
 	}
 

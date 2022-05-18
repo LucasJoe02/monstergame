@@ -57,6 +57,8 @@ public class Shop {
 	 */
 	public Shop(GameEnvironment game) {
 		this.game = game;
+		monsters = new ArrayList<Monster>();
+		stock = new ArrayList<Item>();
 	}
 	
 	/**
@@ -94,6 +96,14 @@ public class Shop {
 		
 	}
 	
+	public ArrayList<Monster> getMonsters() {
+		return monsters;
+	}
+	
+	public ArrayList<Item> getItems() {
+		return stock;
+	}
+	
 	
 	/**
 	 * Facilitates the purchase of either a monster or item from the shop.
@@ -108,7 +118,7 @@ public class Shop {
 			game.getPlayer().getSquad().addMonster(buy);
 			game.getPlayer().decreaseGold(price);
 		} else {
-			Item ite = stock.get(index-4);
+			Item ite = stock.get(index-3);
 			int price = ite.getPurchasePrice();
 			game.getPlayer().addItem(ite);
 			game.getPlayer().decreaseGold(price);
