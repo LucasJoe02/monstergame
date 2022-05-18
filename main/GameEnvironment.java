@@ -55,8 +55,8 @@ public class GameEnvironment {
 	 */
 	public GameEnvironment() {
 		day = 1;
-		shop = new Shop();
-		arena = new Arena();
+		shop = new Shop(this);
+		arena = new Arena(this);
 	}
 	
 	/** 

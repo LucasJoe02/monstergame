@@ -127,7 +127,7 @@ public class Player {
 	 * Add and item to the list of items of this player.
 	 * @param newItem the item to add to the list of items of this player.
 	 */
-	public static void addItem(Item newItem) {
+	public void addItem(Item newItem) {
 		items.add(newItem);
 	}
 	

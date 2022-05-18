@@ -16,9 +16,7 @@ import java.util.ArrayList;
  */
 public class Shop {
 	
-	public Shop() {
-		
-	}
+	
 
 	/**
 	 * 
@@ -30,7 +28,12 @@ public class Shop {
 	private ItemHeal itemHeal;
 	private ItemIncreaseAttack itemAttack;
 	private ItemIncHealSpd itemHPSpd;
+	private GameEnvironment game;
 	
+	
+	public Shop(GameEnvironment game) {
+		this.game = game;
+	}
 	
 	public void refreshStock() {
 		monsters.add(0, monsterCreator.createCommon());
@@ -63,14 +66,28 @@ public class Shop {
 		 if (index < 3) {
 			Monster buy = monsters.get(index);
 			int price = buy.getPurchasePrice();
-			Squad.addMonster(buy);
-			decreaseGold(price);
+			game.getPlayer().getSquad().addMonster(buy);
+			game.getPlayer().decreaseGold(price);
 		} else {
 			Item ite = stock.get(index-4);
 			int price = ite.getPurchasePrice();
-			Player.addItem(ite);
+			game.getPlayer().addItem(ite);
+			game.getPlayer().decreaseGold(price);
 			
 		}
+	}
+	
+	public void sellMonster(int index) {
+		int price =  game.getPlayer().getSquad().getMonsters().get(index).getResellPrice();
+		game.getPlayer().increaseGold(price);
+		game.getPlayer().getSquad().removeMonster(index);
+		
+	}
+	
+	public void sellItem(int index) {
+		int price = game.getPlayer().getItems().get(index).getResellPrice();
+		game.getPlayer().sellItem(index);
+		game.getPlayer().increaseGold(price);
 	}
 
 }

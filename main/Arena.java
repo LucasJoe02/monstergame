@@ -17,7 +17,7 @@ public class Arena {
 	/**
 	 * 
 	 */
-	public Arena() {
+	public Arena(GameEnvironment game) {
 		// TODO Auto-generated constructor stub
 	}
 

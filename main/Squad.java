@@ -40,8 +40,16 @@ public class Squad {
 	 * Adds a given Monster to this squad.
 	 * @param newMonster the new Monster to be added to this squad.
 	 */
-	public static void addMonster(Monster newMonster) {
+	public void addMonster(Monster newMonster) {
 		monsters.add(newMonster);
+	}
+	
+	/**
+	 * Removes a given Monster from this squad.
+	 * @param index the index of the Monster to be removed from this squad.
+	 */
+	public void removeMonster(int index) {
+		monsters.remove(index);
 	}
 
 }
