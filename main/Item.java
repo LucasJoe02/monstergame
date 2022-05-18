@@ -6,5 +6,5 @@ public interface Item {
 	public int getResellPrice();
 	public String getName();
 	public String getDesc();
-	public int getIncreaseAmount();
+	public void useItem(Monster monster);
 }

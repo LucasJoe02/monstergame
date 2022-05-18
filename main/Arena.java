@@ -10,15 +10,25 @@ package main;
  * functionality to start those battles.
  * 
  * @author Lucas Redding
+ * @author Celeste Turnock
  * @version 1.1, May 2022.
  */
 public class Arena {
 
-	/**
-	 * 
-	 */
+	private GameEnvironment game;
+	
+	
 	public Arena(GameEnvironment game) {
 		// TODO Auto-generated constructor stub
+		this.game = game;
+	}
+	
+	public void refreshOpponents( ) {
+		
+	}
+	
+	public void displayOpponents() {
+		
 	}
 
 }

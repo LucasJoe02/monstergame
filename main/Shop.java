@@ -19,22 +19,51 @@ public class Shop {
 	
 
 	/**
-	 * 
+	 * An ArrayList of monsters to sell.
 	 */
 	private ArrayList<Monster> monsters;
+	/**
+	 * An ArrayList of items to sell.
+	 */
 	private ArrayList<Item> stock;
+	/**
+	 * A monster creator to generate new monsters.
+	 */
 	private MonsterCreator monsterCreator;
+	/**
+	 * An ItemIncMaxHP to sell to the player.
+	 */
 	private ItemIncMaxHP itemMax;
+	/**
+	 * An ItemHeal to sell to the player.
+	 */
 	private ItemHeal itemHeal;
+	/**
+	 * An ItemIncreaseAttack to sell to the player.
+	 */
 	private ItemIncreaseAttack itemAttack;
+	/**
+	 * An ItemIncHealSpd to sell to the player.
+	 */
 	private ItemIncHealSpd itemHPSpd;
+	/**
+	 * A GameEnvironment to link back to current GameEnvironment.
+	 */
 	private GameEnvironment game;
 	
-	
+	/**
+	 * Creates a Shop instance and calls current GameEnvironment being used.
+	 * @param game the current GameEnvironment
+	 */
 	public Shop(GameEnvironment game) {
 		this.game = game;
 	}
 	
+	/**
+	 * Refreshes stock for the player to buy from.
+	 * Generates a common, rare and random monster then adds them to an ArrayList to be displayed.
+	 * Adds items to ArrayList to be displayed.
+	 */
 	public void refreshStock() {
 		monsters.add(0, monsterCreator.createCommon());
 		monsters.add(1, monsterCreator.createRare());
@@ -45,6 +74,9 @@ public class Shop {
 		stock.add(3, itemHPSpd);
 	}
 	
+	/**
+	 * Prints out name and description for all items that are available for purchase.
+	 */
 	public void displayStock() {
 		int num = 0;
 		System.out.println("Welcome to the Store! Below is everything available to purchase!");
@@ -62,6 +94,13 @@ public class Shop {
 		
 	}
 	
+	
+	/**
+	 * Facilitates the purchase of either a monster or item from the shop.
+	 * If the player chooses a monster, it is added to their squad and the gold is removed from their total.
+	 * If the player chooses an item, it is added to their inventory and the gold is removed from their total.
+	 * @param index the index of item to be purchased as described by displayStock() 
+	 */
 	public void purchase(int index) {
 		 if (index < 3) {
 			Monster buy = monsters.get(index);
@@ -77,6 +116,11 @@ public class Shop {
 		}
 	}
 	
+	/**
+	 * Facilitates the selling of monsters back to the shop.
+	 * The monster is removed from the player's squad, and the gold is added to their total.
+	 * @param index the index of the monster in the player's squad.
+	 */
 	public void sellMonster(int index) {
 		int price =  game.getPlayer().getSquad().getMonsters().get(index).getResellPrice();
 		game.getPlayer().increaseGold(price);
@@ -84,6 +128,11 @@ public class Shop {
 		
 	}
 	
+	/**
+	 * Facilitates the selling of items back to the shop.
+	 * The item is removed from the player's inventory, and the gold is added to their total.
+	 * @param index the index of the item in the player's inventory.
+	 */
 	public void sellItem(int index) {
 		int price = game.getPlayer().getItems().get(index).getResellPrice();
 		game.getPlayer().sellItem(index);

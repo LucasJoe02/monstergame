@@ -12,6 +12,7 @@ package main;
  * the game and progress.
  * 
  * @author Lucas Redding
+ * @author Celeste Turnock
  * @version 1.1, May 2022.
  */
 public class GameEnvironment {

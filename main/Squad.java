@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * battles for the player.
  * 
  * @author Lucas Redding
+ * @author Celeste Turnock
  * @version 1.1, May 2022.
  */
 public class Squad {
@@ -19,7 +20,7 @@ public class Squad {
 	/** 
 	 * A list of Monsters associated with this squad.
 	 */
-	static ArrayList<Monster> monsters;
+	ArrayList<Monster> monsters;
 	
 	/**
 	 * Instantiates the variables for this Squad.

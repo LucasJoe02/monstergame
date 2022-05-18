@@ -13,6 +13,7 @@ import java.util.Random;
  * their squad of Monsters.
  * 
  * @author Lucas Redding
+ * @author Celeste Turnock
  * @version 1.1, May 2022.
  */
 public class Monster {
