@@ -227,7 +227,7 @@ public class Monster {
 		level += 1;
 		
 		Random r = new Random();
-        int i = r.nextInt()%3;
+        int i = Math.abs(r.nextInt()%3);
         switch (i) {
             case 0:
                 increaseMaxHealth(levelUpBonus);
