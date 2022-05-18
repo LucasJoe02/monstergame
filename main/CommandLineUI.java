@@ -214,26 +214,40 @@ public class CommandLineUI {
 	 * Each option has a number ID above it used when the player selects one of the options.
 	 */
 	public void displayDailyOptions() {
-		System.out.println("Below is a list of available options.");
-		System.out.println("Above each monster is it's number.");
-		System.out.println("Enter the number of the option you wish to select below.");
+		System.out.println("Below is a list of available daily options.");
+		System.out.println("Above each option is it's number.");
+		System.out.println("Enter the number of the option you wish to select below.\n");
 		System.out.println("0\nView your monster squad.\n");
 		System.out.println("1\nView your item inventory.\n");
 		System.out.println("2\nEnter the battle arena.\n");
 		System.out.println("3\nVisit the shop.\n");
-		System.out.println("4\nGo to sleep.");
+		System.out.println("4\nGo to sleep.\n");
 	}
 	
 	public void viewSquad() {
+		System.out.println("\nHi "+game.getPlayer().getName()+".");
+		System.out.println("Below is a description of each of your monsters\nIn the same order they will fight in battles.");
 		for (int i = 0; i < game.getPlayer().getSquad().getMonsters().size(); i++) {
 			System.out.println();
 			System.out.println(i);
 			System.out.println(game.getPlayer().getSquad().getMonsters().get(i));
 		}
+		System.out.println("\nPress enter to return to the main menu.");
+		scanner.nextLine();
+		gameLoop();
 	}
 	
 	public void viewInventory() {
-		
+		System.out.println("\nHi "+game.getPlayer().getName()+".");
+		System.out.println("Below is a description of each of your items");
+		for (Item item : game.getPlayer().getItems()) {
+			System.out.println();
+			System.out.println(item.getName());
+			System.out.println(item.getDesc());
+		}
+		System.out.println("\nPress enter to return to the main menu.");
+		scanner.nextLine();
+		gameLoop();
 	}
 	
 	public void enterArena() {
@@ -255,7 +269,7 @@ public class CommandLineUI {
 	 */
 	public void gameLoop() {
 		System.out.println("\nDay: "+game.getDay()+"/"+game.getMaxDays()+
-						   ".\nGold: "+game.getPlayer().getGold());
+						   "\nGold: "+game.getPlayer().getGold());
 		String inputOptionString;
 		displayDailyOptions();
 		do {
@@ -264,23 +278,23 @@ public class CommandLineUI {
 		}while(!isInputNumValid(inputOptionString,0,4));
 		int inputOption = Integer.parseInt(inputOptionString);
 		switch(inputOption) {
-		case 0:
-			viewSquad();
-			break;
-		case 1:
-			viewInventory();
-			break;
-		case 2:
-			enterArena();
-			break;
-		case 3:
-			visitShop();
-			break;
-		case 4:
-			sleep();
-			break;
-		default:
-			gameLoop();
+			case 0:
+				viewSquad();
+				break;
+			case 1:
+				viewInventory();
+				break;
+			case 2:
+				enterArena();
+				break;
+			case 3:
+				visitShop();
+				break;
+			case 4:
+				sleep();
+				break;
+			default:
+				gameLoop();
 		}
 	}
 
