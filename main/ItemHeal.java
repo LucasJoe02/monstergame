@@ -1,15 +1,21 @@
 package main;
 
+/**
+ * This class implements an ItemHeal which can be used as an item
+ * by the player to heal their Monsters.
+ * 
+ * @author Celeste Turnock
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
+
 public class ItemHeal implements Item {
 
 	/**
 	 * The name of the item. Defaults to "Healer!"
 	 */
 	private String name = "Healer!";
-	/**
-	 * The amount that the monster should heal by.
-	 */
-	private int increaseAmount;
+	
 	/**
 	 * The description of the item.
 	 */
@@ -47,13 +53,7 @@ public class ItemHeal implements Item {
 		return resellPrice;
 	}
 	
-	/**
-	 * Gets the amount the monster should heal by.
-	 * @return the amount the monster should heal by.
-	 */
-	public int getIncreaseAmount() {
-		return increaseAmount;
-	}
+	
 	
 	/**
 	 * Gets the description of the item.

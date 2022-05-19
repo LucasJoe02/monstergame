@@ -1,5 +1,15 @@
 package main;
 
+/**
+ * This class implements a ItemIncHealSpd which can be used as an item
+ * by the player to increase a Monster's current Heal Amount.
+ * 
+ * @author Celeste Turnock
+ * @author Lucas Redding
+ * 
+ * @version 1.1, May 2022.
+ */
+
 public class ItemIncHealSpd implements Item {
 
 	/**
