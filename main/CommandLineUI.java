@@ -374,7 +374,7 @@ public class CommandLineUI {
 	}
 	
 	public void monsterShop(){
-		System.out.println("Welcome to the monster shop");
+		System.out.println("Welcome to the monster shop. You have "+game.getPlayer().getGold()+" gold.");
 		displayMonsterStock();
 		String monsterIndexString;
 		boolean buying = true;

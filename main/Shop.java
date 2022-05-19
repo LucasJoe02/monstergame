@@ -119,6 +119,7 @@ public class Shop {
 		Monster buy = monsters.get(index);
 		int price = buy.getPurchasePrice();
 		game.getPlayer().getSquad().addMonster(buy);
+		monsters.remove(buy);
 		game.getPlayer().decreaseGold(price);
 
 	}
@@ -132,6 +133,7 @@ public class Shop {
 		Item ite = stock.get(index);
 		int price = ite.getPurchasePrice();
 		game.getPlayer().addItem(ite);
+		stock.remove(ite);
 		game.getPlayer().decreaseGold(price);
 	}
 	
