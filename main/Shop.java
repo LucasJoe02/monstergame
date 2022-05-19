@@ -59,6 +59,7 @@ public class Shop {
 		this.game = game;
 		monsters = new ArrayList<Monster>();
 		stock = new ArrayList<Item>();
+		refreshStock();
 	}
 	
 	/**
@@ -67,13 +68,13 @@ public class Shop {
 	 * Adds items to ArrayList to be displayed.
 	 */
 	public void refreshStock() {
-		monsters.add(0, monsterCreator.createCommon());
-		monsters.add(1, monsterCreator.createRare());
-		monsters.add(2, monsterCreator.createRandom());
-		stock.add(0, itemMax);
-		stock.add(1, itemHeal);
-		stock.add(2, itemAttack);
-		stock.add(3, itemHPSpd);
+		monsters.set(0, monsterCreator.createCommon());
+		monsters.set(1, monsterCreator.createRare());
+		monsters.set(2, monsterCreator.createRandom());
+		stock.set(0, itemMax);
+		stock.set(1, itemHeal);
+		stock.set(2, itemAttack);
+		stock.set(3, itemHPSpd);
 	}
 	
 	/**
