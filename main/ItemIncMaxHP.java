@@ -1,5 +1,14 @@
 package main;
 
+/**
+ * This class implements an ItemIncMaxHP which can be used as an item
+ * by the player to increase a Monster's maximum health by a determined amount.
+ * 
+ * @author Celeste Turnock
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
+
 public class ItemIncMaxHP implements Item{
 
 	/**

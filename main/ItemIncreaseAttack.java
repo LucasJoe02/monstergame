@@ -1,5 +1,14 @@
 package main;
 
+/**
+ * This class implements an ItemIncreaseAttack which can be used as an item
+ * by the player to increase the attack of their Monsters.
+ * 
+ * @author Celeste Turnock
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
+
 public class ItemIncreaseAttack implements Item{
 
 	/**

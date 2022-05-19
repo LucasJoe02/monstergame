@@ -2,21 +2,59 @@ package main;
 
 import java.util.Random;
 
+/**
+ * This class implements an Enemy which stores information
+ * that is needed to fight the player in battle.
+ * The enemy has a squad of Monsters and a set amount of gold
+ * and points that can be obtained by defeating them.
+ * 
+ * @author Celeste Turnock
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
+
 public class Enemy {
 
+	/**
+	 * A GameEnvironment to link back to current GameEnvironment being used.
+	 */
 	private GameEnvironment game;
+	/**
+	 * A monster creator to generate new monsters.
+	 */
 	private MonsterCreator monsterCreator;
-	private String place;
+	/**
+	 * The name of this enemy.
+	 */
 	private String name;
+	/**
+	 * The amount of gold that can be obtained by defeating this enemy.
+	 */
 	private int gold;
+	/**
+	 * The amount of points that can be obtained by defeating this enemy.
+	 */
 	private int points;
+	/**
+	 * The squad of Monsters associated with this enemy.
+	 */
 	private Squad squad;
-	private String[] names = {"Jake", "Nathan", "Bobby Brown", "Mr Purple", "Alvin", "Sweetpea"};
+	/** 
+	 * A list of potential names for this enemy.
+	 */
+	private String[] names = {"Jake", "Nathan", "Bobby Brown", "Mr Purple", "Alvin", "Sweetpea" };
+	/**
+	 * The random number generator used to randomly generate specific variables in creating unique enemies.
+	 */
 	Random rng;
 	
+	/**
+	 * Creates an Enemy instance and generates the name, gold, points and squad.
+	 * Also calls current GameEnvironment and initializes random number generator.
+	 * @param game the current GameEnvironment.
+	 */
 	public Enemy(GameEnvironment game) {
 		this.game = game;
-		place = "placeholder";
 		name = "";
 		gold = 0;
 		points = 0;
@@ -27,15 +65,24 @@ public class Enemy {
 		setPoints();
 		setSquad();
 	}
-	
+	/**
+	 * Generates and then assigns a random name for the enemy from a list of potential names.
+	 */
 	public void setName() {
 		name = names[rng.nextInt(names.length)];
 	}
 	
+	/**
+	 * Gets the name of the enemy.
+	 * @return the name of the enemy.
+	 */
 	public String getName() {
 		return name;
 	}
 	
+	/**
+	 * Generates and then assigns an appropriate amount of gold based on game difficulty and current day.
+	 */
 	public void setGold() {
 		if (game.getDifficulty() == 1) {
 			gold = game.getDay() * 2;
@@ -44,10 +91,17 @@ public class Enemy {
 		}
 	}
 	
+	/**
+	 * Gets the amount of gold the enemy has.
+	 * @return the amount of gold the enemy has.
+	 */
 	public int getGold() {
 		return gold;
 	}
 	
+	/**
+	 * Generates and then assigns an appropriate amount of points based on game difficulty and current day.
+	 */
 	public void setPoints() {
 		if (game.getDifficulty()==1) {
 			points = game.getDay() *6;
@@ -56,10 +110,17 @@ public class Enemy {
 		}
 	}
 	
+	/**
+	 * Gets the amount of points the enemy is worth.
+	 * @return the amount of points the enemy is worth.
+	 */
 	public int getPoints() {
 		return points;
 	}
 	
+	/**
+	 * Generates and then assigns an appropriate squad of monsters for the enemy based on game difficulty and current day.
+	 */
 	public void setSquad() {
 		int j = 0;
 		if (game.getDifficulty() ==1 && game.getDay() <=5) {
@@ -123,6 +184,10 @@ public class Enemy {
 		}
 	}
 	
+	/**
+	 * Gets the squad of this enemy.
+	 * @return the squad of this enemy.
+	 */
 	public Squad getSquad() {
 		return squad;
 	}

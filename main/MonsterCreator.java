@@ -24,11 +24,11 @@ public class MonsterCreator {
 	/** 
 	 * The list of possible name prefixes for a Monster being built to have by default.
 	 */
-	private String[] namePrefixes = {"Lava","Rock","Fire","Water","Air","Flame"};
+	private String[] namePrefixes = {"Lava","Rock","Fire","Water","Air","Flame","Ms","Mr","Baby","Blue","Angry","Little","Groﬂ"};
 	/** 
 	 * The list of possible name suffixes for a Monster being built to have by default.
 	 */
-	private String[] nameSuffixes = {"Kitty","Puppy","Melon","Leaf","Dragon","Bird"};
+	private String[] nameSuffixes = {"Kitty","Puppy","Melon","Leaf","Dragon","Bird","Boy","Woman","Egg","Baby"};
 	/** 
 	 * The random number generator used to randomly generate a Monster's stats.
 	 */
