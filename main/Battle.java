@@ -42,6 +42,7 @@ public class Battle {
 	public void win(Player player, Enemy enemy) {
 		player.increaseGold(enemy.getGold());
 		player.increasePoints(enemy.getPoints());
+		//add gold 
 	}
 	
 	
