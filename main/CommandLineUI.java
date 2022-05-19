@@ -371,6 +371,9 @@ public class CommandLineUI {
 			System.out.println("Price: "+game.getShop().getMonsters().get(i).getPurchasePrice());
 			System.out.println(game.getShop().getMonsters().get(i));
 		}
+		if (game.getShop().getMonsters().size()==0) {
+			System.out.println("\nMonster shop is empty.");
+		}
 	}
 	
 	public void monsterShop(){
@@ -405,8 +408,44 @@ public class CommandLineUI {
 		buyShop();
 	}
 	
+	public void displayItemStock(){
+		for (int i = 0; i < game.getShop().getItems().size(); i++) {
+			System.out.println();
+			System.out.println(i);
+			System.out.println("Price: "+game.getShop().getItems().get(i).getPurchasePrice());
+			System.out.println(game.getShop().getItems().get(i).getDesc());
+		}
+		if (game.getShop().getItems().size()==0) {
+			System.out.println("\nItem shop is empty.");
+		}
+	}
+	
 	public void itemShop() {
-		
+		System.out.println("Welcome to the item shop. You have "+game.getPlayer().getGold()+" gold.");
+		displayItemStock();
+		String itemIndexString;
+		boolean buying = true;
+		do {
+			System.out.print("\nEnter the number of the item to buy."
+							 + "\nleave blank to return to buy shop: ");
+			itemIndexString = scanner.nextLine();
+			if (itemIndexString == ""){
+				buying = false;
+				break;	
+			}
+		}while(!isInputNumValid(itemIndexString,0,game.getShop().getItems().size()-1));
+		if (buying) {
+			int itemIndex = Integer.parseInt(itemIndexString);
+			int itemPrice = game.getShop().getItems().get(itemIndex).getPurchasePrice();
+			int playerGold = game.getPlayer().getGold();
+			if (playerGold >= itemPrice) {
+				game.getShop().purchaseItem(itemIndex);
+				System.out.println("Bought successfully!");	
+			}else {
+				System.out.println("Not enough gold!");
+			}
+		}
+		buyShop();
 	}
 	
 	public void buyShop() {

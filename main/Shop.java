@@ -31,22 +31,6 @@ public class Shop {
 	 */
 	private MonsterCreator monsterCreator;
 	/**
-	 * An ItemIncMaxHP to sell to the player.
-	 */
-	private ItemIncMaxHP itemMax;
-	/**
-	 * An ItemHeal to sell to the player.
-	 */
-	private ItemHeal itemHeal;
-	/**
-	 * An ItemIncreaseAttack to sell to the player.
-	 */
-	private ItemIncreaseAttack itemAttack;
-	/**
-	 * An ItemIncHealSpd to sell to the player.
-	 */
-	private ItemIncHealSpd itemHPSpd;
-	/**
 	 * A GameEnvironment to link back to current GameEnvironment.
 	 */
 	private GameEnvironment game;
@@ -75,10 +59,10 @@ public class Shop {
 		monsters.add(0, monsterCreator.createCommon());
 		monsters.add(1, monsterCreator.createRare());
 		monsters.add(2, monsterCreator.createRandom());
-		stock.add(0, itemMax);
-		stock.add(1, itemHeal);
-		stock.add(2, itemAttack);
-		stock.add(3, itemHPSpd);
+		stock.add(0, new ItemIncMaxHP());
+		stock.add(1, new ItemHeal());
+		stock.add(2, new ItemIncreaseAttack());
+		stock.add(3, new ItemIncHealSpd());
 	}
 	
 	/**
@@ -129,7 +113,7 @@ public class Shop {
 	 * If the player chooses a item, it is added to their inventory and the gold is removed from their total.
 	 * @param index the index of item to be purchased.
 	 */
-	public void purchaceItem(int index) {
+	public void purchaseItem(int index) {
 		Item ite = stock.get(index);
 		int price = ite.getPurchasePrice();
 		game.getPlayer().addItem(ite);
