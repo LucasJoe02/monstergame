@@ -150,5 +150,10 @@ public class GameEnvironment {
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
 	}
+	
+	public void useItemOnMonster(int itemIndex, int monsterIndex){
+		player.getItems().get(itemIndex).useItem(player.getSquad().getMonsters().get(monsterIndex));
+		player.getItems().remove(itemIndex);
+	}
 
 }
