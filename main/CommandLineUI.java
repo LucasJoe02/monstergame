@@ -318,8 +318,110 @@ public class CommandLineUI {
 		}
 	}
 	
-	public void visitShop() {
+	/**
+	 * Displays a list of the user player's items and monsters and lets them pick one to sell.
+	 * The player sells an item by entering its Id number.
+	 * The player can return to shop without selling by pressing enter with no input.
+	 */
+	public void sellShop() {
+		System.out.println("\nHi "+game.getPlayer().getName()+".");
+		System.out.println("Welcome to the sell shop. You have "+game.getPlayer().getGold()+" gold.");
+		System.out.println("Below is a list of all your items and monsters with their number above.");
+		System.out.println("Enter below the number of the item or monster you wish to sell.");
+		displayInventory();
+		int itemsAmount = game.getPlayer().getItems().size();
+		int monstersAmount = game.getPlayer().getSquad().getMonsters().size();
+		for (int i = 0; i < monstersAmount; i++) {
+			System.out.println();
+			System.out.println(i+itemsAmount);
+			System.out.println(game.getPlayer().getSquad().getMonsters().get(i));
+		}
+		String sellIndexString;
+		boolean selling = true;
+		do {
+			System.out.print("\nEnter the number of the item/monster to sell."
+							 + "\nleave blank to return to main shop: ");
+			sellIndexString = scanner.nextLine();
+			if (sellIndexString == ""){
+				selling = false;
+				break;	
+			}
+		}while(!isInputNumValid(sellIndexString,0,itemsAmount+monstersAmount-1));
+		if (selling) {
+			int sellIndex = Integer.parseInt(sellIndexString);
+			if (sellIndex < itemsAmount) {
+				game.getShop().sellItem(sellIndex);
+				System.out.println("Sold successfully!");
+			}else {
+				if (monstersAmount > 1) {
+					game.getShop().sellMonster(sellIndex-itemsAmount);
+					System.out.println("Sold successfully!");
+				}else {
+					System.out.println("Cannot sell last monster!");
+				}
+			}
+		}
+		visitShop();
+	}
+	
+	public void monsterShop(){
 		
+	}
+	
+	public void itemShop() {
+		
+	}
+	
+	public void buyShop() {
+		String shopTypeIndexString;
+		boolean enterShop = true;
+		do {
+			System.out.print("\nEnter 0 to browse monsters and 1 for items."
+							 + "\nleave blank to return to main shop: ");
+			shopTypeIndexString = scanner.nextLine();
+			if (shopTypeIndexString == ""){
+				enterShop = false;
+				break;	
+			}
+		}while(!isInputNumValid(shopTypeIndexString,0,1));
+		if (enterShop) {
+			int sellIndex = Integer.parseInt(shopTypeIndexString);
+			if(sellIndex == 0) {
+				monsterShop();
+			}else {
+				itemShop();
+			}
+		}
+		visitShop();
+	}
+	
+	public void visitShop() {
+		System.out.println("\nHi "+game.getPlayer().getName()+".");
+		System.out.println("Welcome to the shop. You have "+game.getPlayer().getGold()+" gold.");
+		String shopChoiceString;
+		boolean enteringShop = true;
+		do {
+			System.out.println("Enter 0 to sell back to the shop or 1 to buy from the shop");
+			System.out.print("(or enter nothing to return to main menu): ");
+			shopChoiceString = scanner.nextLine();
+			if (shopChoiceString == ""){
+				enteringShop = false;
+				break;	
+			}
+		}while(!isInputNumValid(shopChoiceString,0,1));
+		if (enteringShop) {
+			int shopIndex = Integer.parseInt(shopChoiceString);
+			switch(shopIndex) {
+				case 0:
+					sellShop();
+				case 1:
+					buyShop();
+				default:
+					visitShop();
+			}
+		}else {
+			gameLoop();
+		}
 	}
 	
 	public void enterArena() {

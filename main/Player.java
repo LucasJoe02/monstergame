@@ -145,12 +145,10 @@ public class Player {
 	}
 	
 	/** 
-	 * Removes the item at a given index from this player's list of items and increases the player's gold.
-	 * The gold gained is taken from the resell price of the item being sold.
+	 * Removes the item at a given index from this player's list of items.
 	 * @param itemIndex the index of the item, in the plyaer's list of items, being sold.
 	 */
 	public void sellItem(int itemIndex) {
-		increaseGold(items.get(itemIndex).getResellPrice());
 		items.remove(itemIndex);
 	}
 
