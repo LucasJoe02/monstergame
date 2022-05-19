@@ -257,6 +257,13 @@ public class Monster {
 			isFainted = true;
 		}
 	}
+	/**
+	 * Gets whether the monster has fainted or not.
+	 * @return whether the monster has fainted or not.
+	 */
+	public boolean getIsFainted() {
+		return isFainted;
+	}
 	
 	/**
 	 * Heals this Monster's current Health by its heal amount.

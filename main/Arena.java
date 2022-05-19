@@ -19,6 +19,7 @@ public class Arena {
 
 	private GameEnvironment game;
 	private ArrayList<Enemy> enemies;
+	private Battle battle;
 	
 	
 	public Arena(GameEnvironment game) {
@@ -39,8 +40,8 @@ public class Arena {
 		return enemies;
 	}
 	
-	public void battle(Player player, int index) {
-		
+	public void battle(ArrayList<Enemy> enemies, int index) {
+		battle.setBattle(enemies, index);
 	}
 
 }
