@@ -12,9 +12,9 @@ package main;
 public class ItemIncMaxHP implements Item{
 
 	/**
-	 * The name of the item. Defaults to "Super Health!"
+	 * The name of the item.
 	 */
-	private String name = "Super Health!";
+	private String name;
 	/**
 	 * The amount that the monster's max health should increase by"
 	 */
@@ -26,11 +26,19 @@ public class ItemIncMaxHP implements Item{
 	/**
 	 * The price to buy the item. Defaults to 10.
 	 */
-	private int purchasePrice = 10;
+	private int purchasePrice;
 	/**
 	 * The price to sell the item. Defaults to 5.
 	 */
-	private int resellPrice = 5;
+	private int resellPrice;
+	
+	public ItemIncMaxHP() {
+		name = "Super Health!";
+		increaseAmount = 5;
+		desc = name + " increases your monster's current total health amount!";
+		purchasePrice = 10;
+		resellPrice = 5;
+	}
 	
 	/**
 	 * Gets the name of this item.
@@ -52,7 +60,6 @@ public class ItemIncMaxHP implements Item{
 	  * @return the description of the item.
 	  */
 	public String getDesc() {
-		desc = name + " increases your monster's current total health amount!";
 		return desc;
 	}
 	

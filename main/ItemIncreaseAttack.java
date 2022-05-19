@@ -14,7 +14,7 @@ public class ItemIncreaseAttack implements Item{
 	/**
 	 * The name of the item. Defaults to "Gun!"
 	 */
-	private String name = "Gun!";
+	private String name;
 	/**
 	 * The amount that the attack amount should increase by.
 	 */
@@ -26,16 +26,25 @@ public class ItemIncreaseAttack implements Item{
 	/**
 	 * The price to buy the item. Defaults to 10.
 	 */
-	private int purchasePrice = 10;
+	private int purchasePrice;
 	/**
 	 * The price to sell the item. Defaults to 5.
 	 */
 	private int resellPrice;
 	
+	public ItemIncreaseAttack() {
+		name = "Gun!";
+		increaseAmount = 5;
+		desc = name + " increases your monster's attack damage, making it possible to cause more damage to your opponent!";
+		purchasePrice = 10;
+		resellPrice = 5;
+	}
+	
 	/**
 	 * Gets the name of this item.
 	 * @return the name of this item.
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -52,8 +61,8 @@ public class ItemIncreaseAttack implements Item{
 	 * Gets the description of the item.
 	 * @return the description of the item.
 	 */
+	@Override
 	public String getDesc() {
-		desc = name + " increases your monster's attack damage, making it possible to cause more damage to your oponent!";
 		return desc;
 	}
 	
@@ -61,6 +70,7 @@ public class ItemIncreaseAttack implements Item{
 	 * Gets the purchase price of this item.
 	 * @return the purchase price of this item.
 	 */
+	@Override
 	public int getPurchasePrice() {
 		return purchasePrice;
 	}
@@ -69,6 +79,7 @@ public class ItemIncreaseAttack implements Item{
 	 * Gets the resell price of this item.
 	 * @return the resell price of this item.
 	 */
+	@Override
 	public int getResellPrice() {
 		return resellPrice;
 	}
@@ -77,6 +88,7 @@ public class ItemIncreaseAttack implements Item{
 	 * Calls increaseAttackDamage() function for the supplied monster.
 	 * @param monster
 	 */
+	@Override
 	public void useItem(Monster monster) {
 		monster.increaseAttackDamage(increaseAmount);
 		

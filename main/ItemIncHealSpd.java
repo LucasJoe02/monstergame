@@ -15,7 +15,7 @@ public class ItemIncHealSpd implements Item {
 	/**
 	 * The name of the item. Defaults to "Bounce-back!'
 	 */
-	private String name = "Bounce-Back!";
+	private String name;
 	/**
 	 * The amount the heal amount should increase by.
 	 */
@@ -27,16 +27,25 @@ public class ItemIncHealSpd implements Item {
 	/**
 	 * The price to buy the item. Defaults to 10.
 	 */
-	private int purchasePrice = 10;
+	private int purchasePrice;
 	/**
 	 * The price to sell the item. Defaults to 5.
 	 */
-	private int resellPrice = 5;
+	private int resellPrice;
+	
+	public ItemIncHealSpd() {
+		name = "Bounce-Back!";
+		increaseAmount = 5;
+		desc = name + " increases your monster's current heal amount, making it possible to regain more health overnight!";
+		purchasePrice = 10;
+		resellPrice = 5;
+	}
 	
 	/**
 	 * Gets the name of this item.
 	 * @return the name of this item.
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -53,8 +62,8 @@ public class ItemIncHealSpd implements Item {
 	 * Gets the description of the item.
 	 * @return the description of the item.
 	 */
-	public String getDesc() {
-		desc = name + " increases your monster's current heal amount, making it possible to regain more health overnight!";
+	@Override
+	public String getDesc() {;
 		return desc;
 	}
 	
@@ -62,6 +71,7 @@ public class ItemIncHealSpd implements Item {
 	 * Gets the purchase price of this item.
 	 * @return the purchase price of the item.
 	 */
+	@Override
 	public int getPurchasePrice() {
 		purchasePrice = 10;
 		return purchasePrice;
@@ -71,6 +81,7 @@ public class ItemIncHealSpd implements Item {
 	 * Gets the resell price of this item.
 	 * @return the resell price of the item.
 	 */
+	@Override
 	public int getResellPrice() {
 		resellPrice = 5;
 		return resellPrice;
@@ -80,6 +91,7 @@ public class ItemIncHealSpd implements Item {
 	 * Calls the increaseHealAmount() for the supplied monster.
 	 * @param monster
 	 */
+	@Override
 	public void useItem(Monster monster) {
 		monster.increaseHealAmount(increaseAmount);
 	}
