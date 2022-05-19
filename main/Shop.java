@@ -59,8 +59,10 @@ public class Shop {
 		this.game = game;
 		monsters = new ArrayList<Monster>();
 		stock = new ArrayList<Item>();
+		monsterCreator = new MonsterCreator();
 		refreshStock();
 	}
+	
 	
 	/**
 	 * Refreshes stock for the player to buy from.
@@ -68,13 +70,15 @@ public class Shop {
 	 * Adds items to ArrayList to be displayed.
 	 */
 	public void refreshStock() {
-		monsters.set(0, monsterCreator.createCommon());
-		monsters.set(1, monsterCreator.createRare());
-		monsters.set(2, monsterCreator.createRandom());
-		stock.set(0, itemMax);
-		stock.set(1, itemHeal);
-		stock.set(2, itemAttack);
-		stock.set(3, itemHPSpd);
+		monsters.clear();
+		stock.clear();
+		monsters.add(0, monsterCreator.createCommon());
+		monsters.add(1, monsterCreator.createRare());
+		monsters.add(2, monsterCreator.createRandom());
+		stock.add(0, itemMax);
+		stock.add(1, itemHeal);
+		stock.add(2, itemAttack);
+		stock.add(3, itemHPSpd);
 	}
 	
 	/**
@@ -107,24 +111,28 @@ public class Shop {
 	
 	
 	/**
-	 * Facilitates the purchase of either a monster or item from the shop.
+	 * Facilitates the purchase of a monster from the shop.
 	 * If the player chooses a monster, it is added to their squad and the gold is removed from their total.
-	 * If the player chooses an item, it is added to their inventory and the gold is removed from their total.
-	 * @param index the index of item to be purchased as described by displayStock() 
+	 * @param index the index of monster to be purchased.
 	 */
-	public void purchase(int index) {
-		 if (index < 3) {
-			Monster buy = monsters.get(index);
-			int price = buy.getPurchasePrice();
-			game.getPlayer().getSquad().addMonster(buy);
-			game.getPlayer().decreaseGold(price);
-		} else {
-			Item ite = stock.get(index-3);
-			int price = ite.getPurchasePrice();
-			game.getPlayer().addItem(ite);
-			game.getPlayer().decreaseGold(price);
-			
-		}
+	public void purchaseMonster(int index) {
+		Monster buy = monsters.get(index);
+		int price = buy.getPurchasePrice();
+		game.getPlayer().getSquad().addMonster(buy);
+		game.getPlayer().decreaseGold(price);
+
+	}
+	
+	/**
+	 * Facilitates the purchase of an item from the shop.
+	 * If the player chooses a item, it is added to their inventory and the gold is removed from their total.
+	 * @param index the index of item to be purchased.
+	 */
+	public void purchaceItem(int index) {
+		Item ite = stock.get(index);
+		int price = ite.getPurchasePrice();
+		game.getPlayer().addItem(ite);
+		game.getPlayer().decreaseGold(price);
 	}
 	
 	/**

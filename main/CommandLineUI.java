@@ -364,8 +364,45 @@ public class CommandLineUI {
 		visitShop();
 	}
 	
+	public void displayMonsterStock() {
+		for (int i = 0; i < game.getShop().getMonsters().size(); i++) {
+			System.out.println();
+			System.out.println(i);
+			System.out.println("Price: "+game.getShop().getMonsters().get(i).getPurchasePrice());
+			System.out.println(game.getShop().getMonsters().get(i));
+		}
+	}
+	
 	public void monsterShop(){
-		
+		System.out.println("Welcome to the monster shop");
+		displayMonsterStock();
+		String monsterIndexString;
+		boolean buying = true;
+		do {
+			System.out.print("\nEnter the number of the monster to buy."
+							 + "\nleave blank to return to buy shop: ");
+			monsterIndexString = scanner.nextLine();
+			if (monsterIndexString == ""){
+				buying = false;
+				break;	
+			}
+		}while(!isInputNumValid(monsterIndexString,0,game.getShop().getMonsters().size()-1));
+		if (buying) {
+			int monsterIndex = Integer.parseInt(monsterIndexString);
+			int squadSize = game.getPlayer().getSquad().getMonsters().size();
+			int monsterPrice = game.getShop().getMonsters().get(monsterIndex).getPurchasePrice();
+			int playerGold = game.getPlayer().getGold();
+			if ( squadSize < 5 && playerGold >= monsterPrice) {
+				game.getShop().purchaseMonster(monsterIndex);
+				System.out.println("Bought successfully!");
+				pickMonsterName(game.getPlayer().getSquad().getMonsters().get(squadSize));
+			}else if (squadSize < 5 && playerGold < monsterPrice) {
+				System.out.println("Not enough gold!");
+			}else {
+				System.out.println("Cannot own more than 4 monsters!");
+			}
+		}
+		buyShop();
 	}
 	
 	public void itemShop() {
