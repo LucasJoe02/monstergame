@@ -41,7 +41,7 @@ public class Battle {
 		int a = 0;
 		int b = 0;
 		
-		while (playerMons.get(-1).getIsFainted() == false || enemyMons.get(-1).getIsFainted() == false) {
+		while (playerMons.get(playerMons.size()-1).getIsFainted() == false || enemyMons.get(enemyMons.size()-1).getIsFainted() == false) {
 			fight(playerMons.get(a), enemyMons.get(b));
 			if (playerMons.get(a).getIsFainted() == true) {
 				a +=1;

@@ -6,7 +6,7 @@ package main;
 import java.util.ArrayList;
 
 /**
- * This class implements an Arena which organises
+ * This class implements an Arena which organizes
  * the currently available enemy players that the
  * user can battle against as well as provide the
  * functionality to start those battles.
@@ -39,6 +39,7 @@ public class Arena {
 		this.game = game;
 	}
 	
+	
 	/**
 	 * Refreshes opponents for the player to face.
 	 * Generates three enemies then adds them to an ArrayList to be displayed.
@@ -47,9 +48,10 @@ public class Arena {
 		Enemy zero = new Enemy(game);
 		Enemy one = new Enemy(game);
 		Enemy two = new Enemy(game);
-		enemies.set(0, zero);
-		enemies.set(1, one);
-		enemies.set(2, two);
+		enemies.clear();
+		enemies.add(0, zero);
+		enemies.add(1, one);
+		enemies.add(2, two);
 	}
 	
 	/**
