@@ -225,6 +225,18 @@ public class CommandLineUI {
 	}
 	
 	/**
+	 * Displays a string representation of the user player's squad of monsters.
+	 * Each monster is displayed with its index in the squad above it.
+	 */
+	public void displaySquad() {
+		for (int i = 0; i < game.getPlayer().getSquad().getMonsters().size(); i++) {
+			System.out.println();
+			System.out.println(i);
+			System.out.println(game.getPlayer().getSquad().getMonsters().get(i));
+		}
+	}
+	
+	/**
 	 * Displays a list of all of the user player's squad of monsters.
 	 * The monsters and their stats are displayed in the order they battle in.
 	 * On pressing enter the game loop is called to return to the main game loop.
@@ -232,32 +244,78 @@ public class CommandLineUI {
 	public void viewSquad() {
 		System.out.println("\nHi "+game.getPlayer().getName()+".");
 		System.out.println("Below is a description of each of your monsters\nIn the same order they will fight in battles.");
-		for (int i = 0; i < game.getPlayer().getSquad().getMonsters().size(); i++) {
-			System.out.println();
-			System.out.println(i);
-			System.out.println(game.getPlayer().getSquad().getMonsters().get(i));
-		}
+		displaySquad();
 		System.out.println("\nPress enter to return to the main menu.");
 		scanner.nextLine();
 		gameLoop();
 	}
 	
 	/**
-	 * Displays a list of all of the user player's inventory of items.
+	 * Displays a string representation of the user player's inventory of items.
 	 * The items are displayed with their name above their description.
-	 * On pressing enter the game loop is called to return to the main game loop.
+	 * Each item is displayed with its index in the inventory above it.
+	 */
+	public void displayInventory() {
+		for (int i = 0; i < game.getPlayer().getItems().size(); i++) {
+			System.out.println();
+			System.out.println(i);
+			System.out.println(game.getPlayer().getItems().get(i).getName());
+			System.out.println(game.getPlayer().getItems().get(i).getDesc());
+		}
+		if (game.getPlayer().getItems().size()==0) {
+			System.out.println("\nInventory is empty.");
+		}
+	}
+	
+	public void useItem(int itemIndex) {
+		System.out.println("Which of your monsters would you like to use "+game.getPlayer().getItems().get(itemIndex).getName()+" on?");
+		displaySquad();
+		String monsterIndexString;
+		boolean usingItem = true;
+		do {
+			System.out.print("\nEnter the number of the monster or leave blank to cancel: ");
+			monsterIndexString = scanner.nextLine();
+			if (monsterIndexString == ""){
+				usingItem = false;
+				break;	
+			}
+		}while(!isInputNumValid(monsterIndexString,0,game.getPlayer().getSquad().getMonsters().size()-1));
+		if (usingItem) {
+			int monsterIndex = Integer.parseInt(monsterIndexString);
+			game.useItemOnMonster(itemIndex, monsterIndex);
+			System.out.println("\nMonster has been successfully upgraded!");
+			System.out.println(game.getPlayer().getSquad().getMonsters().get(monsterIndex));
+		}
+		viewInventory();
+	}
+	
+	/**
+	 * Displays a list of all of the user player's inventory of items.
+	 * The player is given the option to pick an item to use and which monster to use it on.
+	 * On an empty input the game loop is called to return to the main game loop.
 	 */
 	public void viewInventory() {
 		System.out.println("\nHi "+game.getPlayer().getName()+".");
 		System.out.println("Below is a description of each of your items");
-		for (Item item : game.getPlayer().getItems()) {
-			System.out.println();
-			System.out.println(item.getName());
-			System.out.println(item.getDesc());
+		System.out.println("Above each item is its number. To use an item enter its number below.");
+		displayInventory();
+		String itemIndexString;
+		boolean usingItem = true;
+		do {
+			System.out.print("\nEnter the number of the item you wish to use or"
+							 + "\nleave blank to return to main menu: ");
+			itemIndexString = scanner.nextLine();
+			if (itemIndexString == ""){
+				usingItem = false;
+				break;	
+			}
+		}while(!isInputNumValid(itemIndexString,0,game.getPlayer().getItems().size()-1));
+		if (usingItem) {
+			int itemIndex = Integer.parseInt(itemIndexString);
+			useItem(itemIndex);
+		}else {
+			gameLoop();
 		}
-		System.out.println("\nPress enter to return to the main menu.");
-		scanner.nextLine();
-		gameLoop();
 	}
 	
 	public void visitShop() {
