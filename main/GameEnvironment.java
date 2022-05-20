@@ -57,7 +57,6 @@ public class GameEnvironment {
 	public GameEnvironment() {
 		day = 1;
 		shop = new Shop(this);
-		arena = new Arena(this);
 	}
 	
 	/** 
@@ -145,10 +144,12 @@ public class GameEnvironment {
 	/** 
 	 * Sets the difficulty of this game.
 	 * 1 is easy and 2 is hard.
+	 * after the difficulty is set the arena is updated to reflect the difficulty.
 	 * @param difficulty the integer difficulty to set for this game.
 	 */
 	public void setDifficulty(int difficulty) {
 		this.difficulty = difficulty;
+		arena = new Arena(this);
 	}
 	
 	public void useItemOnMonster(int itemIndex, int monsterIndex){

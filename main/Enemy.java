@@ -55,6 +55,7 @@ public class Enemy {
 	 */
 	public Enemy(GameEnvironment game) {
 		this.game = game;
+		this.monsterCreator = new MonsterCreator();
 		name = "";
 		gold = 0;
 		points = 0;

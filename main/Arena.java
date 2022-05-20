@@ -36,6 +36,7 @@ public class Arena {
 	 */
 	public Arena(GameEnvironment game) {
 		this.game = game;
+		this.enemies = new ArrayList<Enemy>();
 		battle = new Battle(game);
 		refreshOpponents();
 	}
