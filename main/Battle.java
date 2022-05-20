@@ -34,18 +34,28 @@ public class Battle {
 	 * @param index the index of enemy to be fought.
 	 */
 	public void setBattle(ArrayList<Enemy> enList, int index) {
+		//method takes in ArrayList of current enemies, and the index of the enemy to be fought
+		// gets players squad
 		ArrayList<Monster> playerMons = game.getPlayer().getSquad().getMonsters();
+		//gets enemy's squad
 		ArrayList<Monster> enemyMons = enList.get(index).getSquad().getMonsters();
 		
+		//index of player monster
 		int a = 0;
+		//index of enemy monster
 		int b = 0;
 		
+		//while there are still monsters awake on both teams
 		while (playerMons.get(playerMons.size()-1).getIsFainted() == false || enemyMons.get(enemyMons.size()-1).getIsFainted() == false) {
+			//call fight
 			fight(playerMons.get(a), enemyMons.get(b));
 			if (playerMons.get(a).getIsFainted() == true) {
+				//if player loses, get next monster.
 				a +=1;
 			}else {
+				//if player wins, get points and gold
 				win(game.getPlayer(), enList.get(index));
+				//get next enemy monster
 				b += 1;
 			}
 		}
@@ -57,8 +67,11 @@ public class Battle {
 	 * @param enemy the monster on the enemy's team that is to fight.
 	 */
 	public void fight(Monster player, Monster enemy) {
+		//while both monsters are awake
 		while (player.getIsFainted() == false && enemy.getIsFainted() == false) {
+			//the enemy takes damage
 			enemy.takeDamage(player.getAttackDamage());
+			//if enemy is awake, the player takes damage
 			if (enemy.getIsFainted() == false) {
 				player.takeDamage(enemy.getAttackDamage());
 			}
@@ -71,6 +84,7 @@ public class Battle {
 	 * @param enemy the current enemy.
 	 */
 	public void win(Player player, Enemy enemy) {
+		//give player gold and points.
 		player.increaseGold(enemy.getGold());
 		player.increasePoints(enemy.getPoints());
 	}

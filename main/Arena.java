@@ -68,7 +68,7 @@ public class Arena {
 	 * @param enemyIndex the integer index of the chosen enemy to face.
 	 */
 	public void battle(int enemyIndex) {
+		//complete a battle against an enemy squad
 		battle.setBattle(enemies, enemyIndex);
 	}
-
 }
