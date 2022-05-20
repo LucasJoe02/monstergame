@@ -68,6 +68,7 @@ public class Arena {
 	 * @param index index of the chosen enemy to face.
 	 */
 	public void battle(ArrayList<Enemy> enemies, int index) {
+		//complete a battle against an enemy squad
 		battle.setBattle(enemies, index);
 	}
 
