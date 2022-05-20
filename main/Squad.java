@@ -20,7 +20,7 @@ public class Squad {
 	/** 
 	 * A list of Monsters associated with this squad.
 	 */
-	ArrayList<Monster> monsters;
+	private ArrayList<Monster> monsters;
 	
 	/**
 	 * Instantiates the variables for this Squad.

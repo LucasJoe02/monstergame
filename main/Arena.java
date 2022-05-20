@@ -35,8 +35,9 @@ public class Arena {
 	 * @param game the current GameEnvironment
 	 */
 	public Arena(GameEnvironment game) {
-		// TODO Auto-generated constructor stub
 		this.game = game;
+		battle = new Battle(game);
+		refreshOpponents();
 	}
 	
 	
@@ -44,7 +45,7 @@ public class Arena {
 	 * Refreshes opponents for the player to face.
 	 * Generates three enemies then adds them to an ArrayList to be displayed.
 	 */
-	public void refreshOpponents( ) {
+	public void refreshOpponents() {
 		Enemy zero = new Enemy(game);
 		Enemy one = new Enemy(game);
 		Enemy two = new Enemy(game);
@@ -64,11 +65,10 @@ public class Arena {
 	
 	/**
 	 * Initiates the battle between the player's squad and the chosen enemy's squad.
-	 * @param enemies ArrayList of potential enemies.
-	 * @param index index of the chosen enemy to face.
+	 * @param enemyIndex the integer index of the chosen enemy to face.
 	 */
-	public void battle(ArrayList<Enemy> enemies, int index) {
-		battle.setBattle(enemies, index);
+	public void battle(int enemyIndex) {
+		battle.setBattle(enemies, enemyIndex);
 	}
 
 }

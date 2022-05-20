@@ -21,16 +21,15 @@ public class Battle {
 	private GameEnvironment game;
 	
 	/**
-	 * Creates a Battle instance and calls current GameEnvironment being used.
+	 * Creates a Battle instance and sets current GameEnvironment being used.
 	 * @param game the current GameEnvironment.
 	 */
 	public Battle(GameEnvironment game) {
-		// TODO Auto-generated constructor stub
 		this.game = game;
 	}
 
 	/**
-	 * Sets up both player and enemy monsters to battle, then calls fight class.
+	 * Sets up both player and enemy monsters to battle, then calls fight method.
 	 * @param enList the list of potential enemies from the arena.
 	 * @param index the index of enemy to be fought.
 	 */

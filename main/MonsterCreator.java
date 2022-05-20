@@ -32,7 +32,7 @@ public class MonsterCreator {
 	/** 
 	 * The random number generator used to randomly generate a Monster's stats.
 	 */
-	Random rng;
+	private Random rng;
 
 	/**
 	 * Creates a MonsterCreator instance and initializes the MonsterBuilder and random number generator.

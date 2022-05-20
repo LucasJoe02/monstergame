@@ -46,7 +46,7 @@ public class Enemy {
 	/**
 	 * The random number generator used to randomly generate specific variables in creating unique enemies.
 	 */
-	Random rng;
+	private Random rng;
 	
 	/**
 	 * Creates an Enemy instance and generates the name, gold, points and squad.

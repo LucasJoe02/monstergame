@@ -267,6 +267,11 @@ public class CommandLineUI {
 		}
 	}
 	
+	/**
+	 * Asks the user player to choose the ID of the monster they want to use their item on and then uses it.
+	 * Prints a success message when item has been used.
+	 * @param itemIndex the integer of the index in the player's inventory of the item to be used.
+	 */
 	public void useItem(int itemIndex) {
 		System.out.println("Which of your monsters would you like to use "+game.getPlayer().getItems().get(itemIndex).getName()+" on?");
 		displaySquad();
@@ -364,6 +369,11 @@ public class CommandLineUI {
 		visitShop();
 	}
 	
+	/**
+	 * Displays a string representation of the shop's list of monsters in stock.
+	 * The monsters are displayed with their id and price above.
+	 * If the shop is empty a print out tells the player.
+	 */
 	public void displayMonsterStock() {
 		for (int i = 0; i < game.getShop().getMonsters().size(); i++) {
 			System.out.println();
@@ -376,6 +386,12 @@ public class CommandLineUI {
 		}
 	}
 	
+	/**
+	 * Asks the user to input the Id of the monster they wish to buy.
+	 * If the player has enough money and their squad is not full then the purchase is successful.
+	 * Otherwise an error message is displayed to the player.
+	 * Leaving the input blank will return the user to the buy shop.
+	 */
 	public void monsterShop(){
 		System.out.println("Welcome to the monster shop. You have "+game.getPlayer().getGold()+" gold.");
 		displayMonsterStock();
@@ -408,6 +424,11 @@ public class CommandLineUI {
 		buyShop();
 	}
 	
+	/**
+	 * Displays a string representation of the shop's list of items in stock.
+	 * The items are displayed with their id and price above.
+	 * If the shop is empty a print out tells the player.
+	 */
 	public void displayItemStock(){
 		for (int i = 0; i < game.getShop().getItems().size(); i++) {
 			System.out.println();
@@ -420,6 +441,12 @@ public class CommandLineUI {
 		}
 	}
 	
+	/**
+	 * Asks the user to input the Id of the item they wish to buy.
+	 * If the player has enough money then the purchase is successful.
+	 * Otherwise an error message is displayed to the player.
+	 * Leaving the input blank will return the user to the buy shop.
+	 */
 	public void itemShop() {
 		System.out.println("Welcome to the item shop. You have "+game.getPlayer().getGold()+" gold.");
 		displayItemStock();
@@ -448,6 +475,10 @@ public class CommandLineUI {
 		buyShop();
 	}
 	
+	/**
+	 * Asks the user whether they want to buy items or monsters then displays the corresponding shop UI.
+	 * If the input is left blank the user is moved back to the main shop UI.
+	 */
 	public void buyShop() {
 		String shopTypeIndexString;
 		boolean enterShop = true;
@@ -471,6 +502,10 @@ public class CommandLineUI {
 		visitShop();
 	}
 	
+	/**
+	 * Asks the player whether they want to sell or buy at the shop, then moves to correct UI.
+	 * if the input is left blank the user is moved back to main game loop.
+	 */
 	public void visitShop() {
 		System.out.println("\nHi "+game.getPlayer().getName()+".");
 		System.out.println("Welcome to the shop. You have "+game.getPlayer().getGold()+" gold.");
@@ -500,8 +535,68 @@ public class CommandLineUI {
 		}
 	}
 	
+	public void displayEnemySquad(Enemy enemy){
+		for (int i = 0; i < enemy.getSquad().getMonsters().size(); i++) {
+			System.out.println();
+			System.out.println(i);
+			System.out.println(enemy.getSquad().getMonsters().get(i));
+		}
+	}
+	
+	public void viewEnemyTeam(int enemyIndex){
+		Arena arena = game.getArena();
+		Enemy enemy = arena.getEnemies().get(enemyIndex);
+		System.out.println("\nEnemy name: "+enemy.getName());
+		System.out.println("Enemy squad: ");
+		displayEnemySquad(enemy);
+		String battleChoiceString;
+		do {
+			System.out.println("Enter 0 to fight enemy or 1 to return to arena: ");
+			battleChoiceString = scanner.nextLine();
+		}while(!isInputNumValid(battleChoiceString,0,1));
+		int battleChoiceInt = Integer.parseInt(battleChoiceString);
+		if (battleChoiceInt == 0) {
+			arena.battle(enemyIndex);
+		}
+		enterArena();
+	}
+	
+	public void viewOppenents() {
+		ArrayList<Enemy> enemyList = game.getArena().getEnemies();
+		for (int i = 0; i < enemyList.size(); i++) {
+			System.out.println();
+			System.out.println(i);
+			System.out.println("Name: "+enemyList.get(i).getName());
+			System.out.println("Reward: "+enemyList.get(i).getGold()+" gold.");
+			System.out.println("Points: "+enemyList.get(i).getPoints());
+		}
+		if (enemyList.size()==0) {
+			System.out.println("\nArena is empty.");
+		}
+	}
+	
 	public void enterArena() {
+		System.out.println("\nHi "+game.getPlayer().getName()+".");
+		System.out.println("Below is a list of today's arena opponents. Each have a number above.");
+		System.out.println("Enter the number of the oppenent below to get more information on the battle.");
+		viewOppenents();
 		
+		String enemyIndexString;
+		boolean viewingEnemy = true;
+		do {
+			System.out.println("Enter number of the oppenent you wish to get more information on.");
+			System.out.print("(or enter nothing to return to main menu): ");
+			enemyIndexString = scanner.nextLine();
+			if (enemyIndexString == ""){
+				viewingEnemy = false;
+				break;	
+			}
+		}while(!isInputNumValid(enemyIndexString,0,game.getArena().getEnemies().size()-1));
+		if (viewingEnemy) {
+			int enemyIndex = Integer.parseInt(enemyIndexString);
+			viewEnemyTeam(enemyIndex);
+		}
+		gameLoop();
 	}
 	
 	public void sleep() {
