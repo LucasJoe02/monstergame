@@ -33,6 +33,10 @@ public class ItemIncHealSpd implements Item {
 	 */
 	private int resellPrice;
 	
+	/**
+	 * The default constructor for an ItemIncHealSpd.
+	 * Instantiates the variables of this item to its default values.
+	 */
 	public ItemIncHealSpd() {
 		name = "Bounce-Back!";
 		increaseAmount = 5;
@@ -89,7 +93,7 @@ public class ItemIncHealSpd implements Item {
 	
 	/** 
 	 * Calls the increaseHealAmount() for the supplied monster.
-	 * @param monster
+	 * @param monster the Monster the item is being used on
 	 */
 	@Override
 	public void useItem(Monster monster) {

@@ -32,6 +32,10 @@ public class ItemIncMaxHP implements Item{
 	 */
 	private int resellPrice;
 	
+	/**
+	 * The default constructor for an ItemIncMaxHP.
+	 * Instantiates the variables of this item to its default values.
+	 */
 	public ItemIncMaxHP() {
 		name = "Super Health!";
 		increaseAmount = 5;
@@ -81,7 +85,7 @@ public class ItemIncMaxHP implements Item{
 	
 	/**
 	 * Calls increaseMaxHealth() function for the supplied monster.
-	 * @param monster
+	 * @param monster the Monster the item is being used on
 	 */
 	public void useItem(Monster monster) {
 		monster.increaseMaxHealth(increaseAmount);

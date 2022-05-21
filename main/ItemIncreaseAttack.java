@@ -32,6 +32,10 @@ public class ItemIncreaseAttack implements Item{
 	 */
 	private int resellPrice;
 	
+	/**
+	 * The default constructor for an ItemIncreaseAttack.
+	 * Instantiates the variables of this item to its default values.
+	 */
 	public ItemIncreaseAttack() {
 		name = "Gun!";
 		increaseAmount = 5;
@@ -86,7 +90,7 @@ public class ItemIncreaseAttack implements Item{
 	
 	/**
 	 * Calls increaseAttackDamage() function for the supplied monster.
-	 * @param monster
+	 * @param monster the Monster the item is being used on
 	 */
 	@Override
 	public void useItem(Monster monster) {

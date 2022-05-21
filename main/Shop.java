@@ -82,10 +82,18 @@ public class Shop {
 		
 	}
 	
+	/**
+	 * Gets the list of monsters for this shop.
+	 * @return the ArrayList of monsters for this shop
+	 */
 	public ArrayList<Monster> getMonsters() {
 		return monsters;
 	}
 	
+	/**
+	 * Gets the list of items for this shop.
+	 * @return the ArrayList of items for this shop
+	 */
 	public ArrayList<Item> getItems() {
 		return stock;
 	}

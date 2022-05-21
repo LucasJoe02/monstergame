@@ -12,27 +12,27 @@ package main;
 public interface Item {
 
 	/**
-	 * Gets the purchase price of the item.
-	 * @return the purchase price.
+	 * Gets the purchase price of this item.
+	 * @return the integer purchase price.
 	 */
 	int getPurchasePrice();
 	/**
-	 * Gets the resell price of the item.
-	 * @return the resell price.
+	 * Gets the resell price of this item.
+	 * @return the integer resell price.
 	 */
 	int getResellPrice();
 	/**
-	 * Gets the name of the item.
-	 * @return the name of the item.
+	 * Gets the name of this item.
+	 * @return the String name of this item.
 	 */
 	String getName();
 	/**
-	 * Gets the description of the item.
-	 * @return the description of the item.
+	 * Gets the description of this item.
+	 * @return the String description of this item.
 	 */
 	String getDesc();
 	/**
-	 * Uses the item on the given monster.
+	 * Uses this item on the given monster.
 	 * @param monster the given monster.
 	 */
 	void useItem(Monster monster);

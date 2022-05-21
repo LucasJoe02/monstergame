@@ -29,6 +29,10 @@ public class ItemHeal implements Item {
 	 */
 	private int resellPrice;
 	
+	/**
+	 * The default constructor for an ItemHeal.
+	 * Instantiates the variables of this item to its default values.
+	 */
 	public ItemHeal() {
 		name = "Healer!";
 		desc = "The "+name+" increases your monster's current health by their current heal amount!";
@@ -74,7 +78,7 @@ public class ItemHeal implements Item {
 	
 	/**
 	 * Calls heal() function for the supplied monster.
-	 * @param monster
+	 * @param monster the Monster the item is being used on
 	 */
 	@Override
 	public void useItem(Monster monster) {

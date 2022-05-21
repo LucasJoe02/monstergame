@@ -276,19 +276,25 @@ public class Monster {
 		}
 	}
 
-	
+	/**
+	 * Gets the purchase price of this monster.
+	 * @return the integer purchase price of the monster
+	 */
 	public int getPurchasePrice() {
 		return purchasePrice;
 	}
 
-	
+	/**
+	 * Gets the sell price of this monster.
+	 * @return the integer sell price of this monster
+	 */
 	public int getResellPrice() {
 		return resellPrice;
 	}
 	
 	/**
 	 * Returns a string representation of this Monster.
-	 * Displays all the important stats of this Monster.
+	 * Displays all the important statistics of this Monster.
 	 * @return a string representation of this Monster.
 	 */
 	@Override
