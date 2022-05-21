@@ -11,4 +11,6 @@ class PlayerTest {
 		fail("Not yet implemented");
 	}
 
+	//technically all getters and setters
+	
 }

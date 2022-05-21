@@ -11,4 +11,6 @@ class MonsterBuilderImplTest {
 		fail("Not yet implemented");
 	}
 
+	//technically getters and setters??
+	
 }
