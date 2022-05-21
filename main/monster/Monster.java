@@ -314,5 +314,27 @@ public class Monster {
 				"\nHealing: "+healAmount+
 				"\nSell Price: "+resellPrice;
 	}
+	
+	/**
+	 * Returns a string representation of this Monster with html syntax.
+	 * Displays all the important statistics of this Monster.
+	 * @return a string representation of this Monster with html syntax.
+	 */
+	public String toStringHTML() {
+		String faintString;
+		if (isFainted) {
+			faintString = "Fainted";
+		}else {
+			faintString = "Awake";
+		}
+		return "<html>Name: "+name+
+				"<br>Wakefullness: "+faintString+
+				"<br>Rarity: "+rarity+
+				"<br>Level: "+level+
+				"<br>Health: "+currentHealth+"/"+maxHealth+
+				"<br>Attack: "+attackDamage+
+				"<br>Healing: "+healAmount+
+				"<br>Sell Price: "+resellPrice;
+	}
 
 }
