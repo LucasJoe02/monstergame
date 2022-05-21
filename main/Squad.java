@@ -1,6 +1,3 @@
-/**
- * 
- */
 package main;
 
 import java.util.ArrayList;
@@ -51,6 +48,15 @@ public class Squad {
 	 */
 	public void removeMonster(int index) {
 		monsters.remove(index);
+	}
+	
+	/**
+	 * Heals all of the monsters in the squad by their heal amount.
+	 */
+	public void healMonsters() {
+		for (Monster mon:monsters) {
+			mon.heal();
+		}
 	}
 
 }
