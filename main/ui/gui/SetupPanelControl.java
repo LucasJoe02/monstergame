@@ -24,7 +24,7 @@ import java.awt.Color;
 
 import javax.swing.SwingConstants;
 
-public class SetupPanelControl {
+public class SetupPanelControl implements PanelControl{
 
 	private JPanel setupPanel;
 	private GraphicalUI gui;
@@ -72,7 +72,8 @@ public class SetupPanelControl {
 		}
 	}
 	
-	private void build() {
+	@Override
+	public void build() {
 		JButton startButton = new JButton("Start Game");
 		startButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,7 +83,7 @@ public class SetupPanelControl {
 					Monster chosenMonster = availableMonsters.get(diffSlider_1.getValue());
 					game.setPlayer(usernameField.getText(), chosenMonster);
 					setupPanel.setVisible(false);
-					gui.createMenu();
+					gui.setupGame();
 					gui.getMenu().setVisible(true);
 				}else {
 					usernameError.setText("<html>Username must contain between 3 and 15 characters "
@@ -202,7 +203,8 @@ public class SetupPanelControl {
 		diffSlider_1.setBounds(92, 188, 393, 23);
 		setupPanel.add(diffSlider_1);
 	}
-
+	
+	@Override
 	public JPanel getPanel() {
 		return setupPanel;
 	}

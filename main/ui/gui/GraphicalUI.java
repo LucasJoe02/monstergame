@@ -14,6 +14,7 @@ public class GraphicalUI {
 	private JFrame frmMonsterFighter;
 	private JPanel setupPanel;
 	private JPanel menuPanel;
+	private JPanel squadPanel;
 	private GameEnvironment game;
 	
 
@@ -57,13 +58,19 @@ public class GraphicalUI {
 		
 	}
 	
-	public void createMenu() {
+	public void setupGame() {
 		menuPanel = (new MenuPanelControl(this)).getPanel();
-		frmMonsterFighter.getContentPane().add(menuPanel, "name_4317081042699");
+		frmMonsterFighter.getContentPane().add(menuPanel, "name_4317081042700");
+		squadPanel = (new SquadPanelControl(this).getPanel());
+		frmMonsterFighter.getContentPane().add(squadPanel, "name_4317081042699");
 	}
 	
 	public JPanel getMenu() {
 		return menuPanel;
+	}
+	
+	public JPanel getSquadPanel() {
+		return squadPanel;
 	}
 	
 	public GameEnvironment getGame() {
