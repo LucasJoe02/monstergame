@@ -1,1 +1,8 @@
 main
+main.arena
+main.environment
+main.item
+main.monster
+main.player
+main.shop
+main.ui
