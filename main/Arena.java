@@ -1,6 +1,3 @@
-/**
- * 
- */
 package main;
 
 import java.util.ArrayList;
@@ -65,11 +62,13 @@ public class Arena {
 	}
 	
 	/**
-	 * Initiates the battle between the player's squad and the chosen enemy's squad.
+	 * Initiates the battle between the player's squad and the chosen enemy's squad and returns a string representation of outcome.
 	 * @param enemyIndex the integer index of the chosen enemy to face.
+	 * @return a string representation of battle outcome.
 	 */
-	public void battle(int enemyIndex) {
-		//complete a battle against an enemy squad
-		battle.setBattle(enemies, enemyIndex);
+	public String battle(int enemyIndex) {
+		String outcome = battle.setBattle(enemies, enemyIndex);
+		enemies.remove(enemyIndex);
+		return outcome;
 	}
 }

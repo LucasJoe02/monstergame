@@ -1,6 +1,3 @@
-/**
- * 
- */
 package main;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -498,8 +495,9 @@ public class CommandLineUI {
 			}else {
 				itemShop();
 			}
+		}else {
+			visitShop();
 		}
-		visitShop();
 	}
 	
 	/**
@@ -525,16 +523,20 @@ public class CommandLineUI {
 			switch(shopIndex) {
 				case 0:
 					sellShop();
+					break;
 				case 1:
 					buyShop();
-				default:
-					visitShop();
+					break;
 			}
 		}else {
 			gameLoop();
 		}
 	}
 	
+	/**
+	 * Display's the squad of the given enemy with the index of each monster in the squad above it.
+	 * @param enemy the Enemy that has the squad of monsters to display
+	 */
 	public void displayEnemySquad(Enemy enemy){
 		for (int i = 0; i < enemy.getSquad().getMonsters().size(); i++) {
 			System.out.println();
@@ -543,6 +545,12 @@ public class CommandLineUI {
 		}
 	}
 	
+	/**
+	 * Display's an enemy and their squad to the player and lets player choose if they want to fight the enemy.
+	 * If the player decides to battle the enemy then a summary of the battle is printed to the player.]
+	 * The player cannot fight the enemy if all their monsters are fainted.
+	 * @param enemyIndex the integer index of the enemy being displayed in the arena's enemy array
+	 */
 	public void viewEnemyTeam(int enemyIndex){
 		Arena arena = game.getArena();
 		Enemy enemy = arena.getEnemies().get(enemyIndex);
@@ -551,23 +559,32 @@ public class CommandLineUI {
 		displayEnemySquad(enemy);
 		String battleChoiceString;
 		do {
-			System.out.println("Enter 0 to fight enemy or 1 to return to arena: ");
+			System.out.print("\nEnter 0 to fight enemy or 1 to return to arena: ");
 			battleChoiceString = scanner.nextLine();
 		}while(!isInputNumValid(battleChoiceString,0,1));
 		int battleChoiceInt = Integer.parseInt(battleChoiceString);
 		if (battleChoiceInt == 0) {
-			arena.battle(enemyIndex);
+			Squad playerSquad = game.getPlayer().getSquad();
+			if (playerSquad.getMonsters().get(playerSquad.getMonsters().size()-1).getIsFainted()==false) {
+				System.out.println("\n"+arena.battle(enemyIndex));
+			}else {
+				System.out.println("\nCannot fight enemy if all your monsters are fainted");
+			}
 		}
 		enterArena();
 	}
 	
+	/**
+	 * Displays a list of the available opponents that the player to challenge to a battle.
+	 * Below the name of the enemy is the reward in gold and points for defeating them.
+	 */
 	public void viewOppenents() {
 		ArrayList<Enemy> enemyList = game.getArena().getEnemies();
 		for (int i = 0; i < enemyList.size(); i++) {
 			System.out.println();
 			System.out.println(i);
 			System.out.println("Name: "+enemyList.get(i).getName());
-			System.out.println("Reward: "+enemyList.get(i).getGold()+" gold.");
+			System.out.println("Reward: "+enemyList.get(i).getGold()+" gold");
 			System.out.println("Points: "+enemyList.get(i).getPoints());
 		}
 		if (enemyList.size()==0) {
@@ -575,6 +592,10 @@ public class CommandLineUI {
 		}
 	}
 	
+	/**
+	 * Displays a list of today's opponents in the arena and gives the player the option to get more information on each.
+	 * The player can enter the number of the opponent for more information or leave input blank to return to the main menu.
+	 */
 	public void enterArena() {
 		System.out.println("\nHi "+game.getPlayer().getName()+".");
 		System.out.println("Below is a list of today's arena opponents. Each have a number above.");
@@ -595,12 +616,33 @@ public class CommandLineUI {
 		if (viewingEnemy) {
 			int enemyIndex = Integer.parseInt(enemyIndexString);
 			viewEnemyTeam(enemyIndex);
+		}else {
+			gameLoop();
 		}
-		gameLoop();
+
 	}
 	
+	/**
+	 * Displays an end screen to the player with their name and score in points.
+	 */
+	public void endScreen() {
+		System.out.println("\nGame over "+game.getPlayer().getName()+", game over.");
+		System.out.println("Points: "+game.getPlayer().getPoints());
+	}
+	
+	/**
+	 * Calls the sleep method from the game environment and prints out the night events.
+	 * If the the game is complete (all days have passed) the end screen is called.
+	 * Otherwise the player is returned to the main menu.
+	 */
 	public void sleep() {
-		
+		System.out.println();
+		System.out.println(game.sleep());
+		if (game.getDay() <= game.getMaxDays()) {
+			gameLoop();
+		}else {
+			endScreen();
+		}
 	}
 	
 	/**
@@ -636,6 +678,7 @@ public class CommandLineUI {
 				break;
 			default:
 				gameLoop();
+				break;
 		}
 	}
 

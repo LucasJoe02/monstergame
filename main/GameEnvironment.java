@@ -1,7 +1,7 @@
-/**
- * 
- */
 package main;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * This class controls all of the objects and information
@@ -50,13 +50,23 @@ public class GameEnvironment {
 	 * The difficulty of this game.
 	 */
 	private int difficulty;
+	/**
+	 * The random number generator used to randomly generate random events.
+	 */
+	private Random rng;
+	/**
+	 * The monster creator to create monsters.
+	 */
+	private MonsterCreator monsterCreator;
 	
 	/**
-	 * Constructor that initializes the day to 1 and creates the shop and arena for the game.
+	 * Constructor that initializes the day to 1 and creates the shop and monster creator for the game.
 	 */
 	public GameEnvironment() {
 		day = 1;
 		shop = new Shop(this);
+		monsterCreator = new MonsterCreator();
+		rng = new Random();
 	}
 	
 	/** 
@@ -152,9 +162,54 @@ public class GameEnvironment {
 		arena = new Arena(this);
 	}
 	
+	/**
+	 * Uses the player's item at a given index on a player's monster at a given index.
+	 * @param itemIndex the integer index of the item in player's inventory
+	 * @param monsterIndex the integer index of the monster in the player's squad
+	 */
 	public void useItemOnMonster(int itemIndex, int monsterIndex){
 		player.getItems().get(itemIndex).useItem(player.getSquad().getMonsters().get(monsterIndex));
 		player.getItems().remove(itemIndex);
+	}
+	
+	/**
+	 * Increases the day by one, refreshes the shop and arena, heals the player's monsters and implements random night events.
+	 * There is a random chance that a monster in the player's squad will level up.
+	 * There is a low chance a fainted monster will run away during the night if the player has more than one monster.
+	 * There is a low chance a new monster will join the player's squad if the squad is not yet full.
+	 * All night events are added to a string and returned so the UI can display the events to the user.
+	 * @return the String representation of the night's random events
+	 */
+	public String sleep() {
+		increaseDay();
+		shop.refreshStock();
+		arena.refreshOpponents();
+		player.getSquad().healMonsters();
+		String nightEvents = "";
+		int rand = rng.nextInt(100);
+		ArrayList<Monster> monsters =  player.getSquad().getMonsters();
+		if (rand < 50) {
+			Monster lvlUpMonst = monsters.get(Math.abs(rng.nextInt()%monsters.size()));
+			lvlUpMonst.levelUp();
+			nightEvents += lvlUpMonst.getName()+" levelled up!";
+		}
+		rand = rng.nextInt(100);
+		if (rand < 10) {
+			Monster leaveMonst = monsters.get(Math.abs(rng.nextInt()%monsters.size()));
+			if (leaveMonst.getIsFainted()==true && monsters.size() > 1) {
+				nightEvents += leaveMonst.getName()+" ran away!";
+				monsters.remove(leaveMonst);
+			}
+		}
+		rand = rng.nextInt(100);
+		if (rand < 10) {
+			if (rng.nextInt()%5>monsters.size() && monsters.size()<4) {
+				Monster newMonst = monsterCreator.createRandom();
+				monsters.add(newMonst);
+				nightEvents += "Monster "+newMonst.getName()+" joined overnight!";
+			}
+		}
+		return nightEvents;
 	}
 
 }
