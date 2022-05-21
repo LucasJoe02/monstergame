@@ -99,4 +99,9 @@ public class ItemIncreaseAttack implements Item{
 		monster.increaseAttackDamage(increaseAmount);
 		
 	}
+	
+	@Override
+	public String toStringHTML() {
+		return ("<html>"+name+"<br>"+desc);
+	}
 }

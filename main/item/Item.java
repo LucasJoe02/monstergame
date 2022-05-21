@@ -17,25 +17,31 @@ public interface Item {
 	 * Gets the purchase price of this item.
 	 * @return the integer purchase price.
 	 */
-	int getPurchasePrice();
+	public int getPurchasePrice();
 	/**
 	 * Gets the resell price of this item.
 	 * @return the integer resell price.
 	 */
-	int getResellPrice();
+	public int getResellPrice();
 	/**
 	 * Gets the name of this item.
 	 * @return the String name of this item.
 	 */
-	String getName();
+	public String getName();
 	/**
 	 * Gets the description of this item.
 	 * @return the String description of this item.
 	 */
-	String getDesc();
+	public String getDesc();
 	/**
 	 * Uses this item on the given monster.
 	 * @param monster the given monster.
 	 */
-	void useItem(Monster monster);
+	public void useItem(Monster monster);
+	
+	/**
+	 * Returns the name and description of this item in html.
+	 * @return the String name and description of this item in html.
+	 */
+	public String toStringHTML();
 }

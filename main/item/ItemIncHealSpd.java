@@ -101,4 +101,9 @@ public class ItemIncHealSpd implements Item {
 	public void useItem(Monster monster) {
 		monster.increaseHealAmount(increaseAmount);
 	}
+	
+	@Override
+	public String toStringHTML() {
+		return ("<html>"+name+"<br>"+desc);
+	}
 }

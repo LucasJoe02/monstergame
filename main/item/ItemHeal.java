@@ -87,4 +87,9 @@ public class ItemHeal implements Item {
 		monster.heal();
 		
 	}
+	
+	@Override
+	public String toStringHTML() {
+		return ("<html>"+name+"<br>"+desc);
+	}
 }

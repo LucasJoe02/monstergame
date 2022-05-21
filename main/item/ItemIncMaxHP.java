@@ -93,4 +93,8 @@ public class ItemIncMaxHP implements Item{
 		monster.increaseMaxHealth(increaseAmount);
 	}
 	
+	@Override
+	public String toStringHTML() {
+		return ("<html>"+name+"<br>"+desc);
+	}
 }
