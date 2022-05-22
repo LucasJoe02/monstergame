@@ -18,37 +18,40 @@ import main.monster.Squad;
  * this command line to setup the game, view
  * stats, view squad, visit the shop and arena
  * and progress through the game.
- * 
  * @author Lucas Redding
  * @version 1.1, May 2022.
  */
 public class CommandLineUI {
 
 	/**
-	 * The gameEnvironment that provides the functionality of the game and controls the game objects. 
+	 * The gameEnvironment that provides the functionality of the game
+	 * and controls the game objects.
 	 */
 	private GameEnvironment game;
 	/**
-	 * A scanner object that allows the UI to read input from the user in the command line.
+	 * A scanner object that allows the UI to read input from the user in
+	 * the command line.
 	 */
 	private Scanner scanner;
-	
+
 	/**
 	 * Constructor that initializes the game and scanner objects.
-	 * The scanner object reads from the standard input to take user input from the command line.
+	 * The scanner object reads from the standard input to take user
+	 * input from the command line.
 	 */
 	public CommandLineUI() {
 		game = new GameEnvironment();
 		scanner = new Scanner(System.in);
 	}
-	
+
 	/**
 	 * Checks if the name input by the user is a valid name for the game.
 	 * Creates a regular expression pattern that is the set of all strings
 	 * except those that contain only letters.
-	 * Creates a matcher that compares the given name with the regular expression pattern.
-	 * If the name is not in the pattern then it must contain only letters.
-	 * If the name is only letters and is between 3 and 15 characters long (inclusive) then
+	 * Creates a matcher that compares the given name with the regular
+	 * expression pattern. If the name is not in the pattern then it must
+	 * contain only letters. If the name is only letters and is between 3
+	 * and 15 characters long (inclusive) then
 	 * the method returns true, else it returns false.
 	 * @param name the name to be checked for validity
 	 * @return boolean that describes if the given name was valid.
@@ -57,24 +60,29 @@ public class CommandLineUI {
 		Pattern pattern = Pattern.compile("[^a-zA-Z]");
 		Matcher matcher = pattern.matcher(name);
 		boolean valid = false;
-		if (!matcher.find() && name.length() <= 15 && name.length() >= 3) {
+		if (!matcher.find()
+				&& name.length() <= 15 && name.length() >= 3) {
 			valid = true;
 		}
 		return valid;
 	}
-	
+
 	/**
-	 * Checks if the number input by the user is valid based on a lower and upper bound (inclusive) for the number.
-	 * Try's changing the input string number into an integer and then checks if it is made up of
-	 * number characters and is between the lower and upper bounds (inclusive).
+	 * Checks if the number input by the user is valid based on a
+	 * lower and upper bound (inclusive) for the number.
+	 * Try's changing the input string number into an integer and then
+	 * checks if it is made up of
+	 * number characters and is between the lower and upper bounds
+	 * (inclusive).
 	 * If the number is between the bounds then the method returns true.
-	 * If the try catch block fails or the number is not in the bounds then the method returns false.
+	 * If the try catch block fails or the number is not in the bounds
+	 * then the method returns false.
 	 * @param num the string being checked to see if it is a valid number.
 	 * @param lower the lower bound (inclusive) of a valid number.
-	 * @param lower the upper bound (inclusive) of a valid number.
+	 * @param upper the upper bound (inclusive) of a valid number.
 	 * @return boolean that describes if the given number was valid.
 	 */
-	private boolean isInputNumValid(String num,int lower,int upper) {
+    private boolean isInputNumValid(String num, int lower, int upper) {
 		Pattern pattern = Pattern.compile("[0-9]");
 		Matcher matcher = pattern.matcher(num);
 		boolean valid = false;
