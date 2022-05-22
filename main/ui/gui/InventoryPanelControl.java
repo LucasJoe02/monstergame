@@ -30,6 +30,9 @@ public class InventoryPanelControl implements PanelControl{
 	
 	@Override
 	public void build() {
+		
+		ArrayList<Item> itemsList
+		
 		JLabel titleLabel = new JLabel("Your Inventory");
 		titleLabel.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		titleLabel.setBounds(10, 11, 157, 14);

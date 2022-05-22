@@ -45,6 +45,8 @@ public class MenuPanelControl implements PanelControl{
 		JButton inventoryButton = new JButton("View Inventory");
 		inventoryButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				menuPanel.setVisible(false);
+				gui.getInventoryPanel().setVisible(true);
 			}
 		});
 		inventoryButton.setBounds(10, 177, 135, 55);
