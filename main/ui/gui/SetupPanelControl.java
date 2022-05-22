@@ -84,7 +84,7 @@ public class SetupPanelControl implements PanelControl{
 					game.setPlayer(usernameField.getText(), chosenMonster);
 					setupPanel.setVisible(false);
 					gui.setupGame();
-					gui.getMenu().setVisible(true);
+					gui.getMenuPanel().setVisible(true);
 				}else {
 					usernameError.setText("<html>Username must contain between 3 and 15 characters "
 							+ "and must not include numbers or special characters.");
@@ -149,6 +149,7 @@ public class SetupPanelControl implements PanelControl{
 		setupPanel.add(daySlider);
 		
 		diffSlider = new JSlider();
+		diffSlider.setPaintTrack(false);
 		diffSlider.setMajorTickSpacing(1);
 		diffSlider.setMinimum(1);
 		diffSlider.setMaximum(2);

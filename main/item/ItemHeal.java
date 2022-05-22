@@ -90,6 +90,6 @@ public class ItemHeal implements Item {
 	
 	@Override
 	public String toStringHTML() {
-		return ("<html>"+name+"<br>"+desc);
+		return ("<html>"+desc);
 	}
 }

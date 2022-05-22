@@ -40,7 +40,7 @@ public class SquadPanelControl implements PanelControl{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				squadPanel.setVisible(false);
-				gui.getMenu().setVisible(true);
+				gui.getMenuPanel().setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(463, 350, 127, 23);

@@ -13,8 +13,15 @@ public class GraphicalUI {
 
 	private JFrame frmMonsterFighter;
 	private JPanel setupPanel;
+	private SetupPanelControl setupControl;
 	private JPanel menuPanel;
+	private MenuPanelControl menuControl;
 	private JPanel squadPanel;
+	private SquadPanelControl squadControl;
+	private JPanel inventoryPanel;
+	private InventoryPanelControl inventoryControl;
+	private JPanel shopPanel;
+	private ShopPanelControl shopControl;
 	private GameEnvironment game;
 	
 
@@ -53,24 +60,72 @@ public class GraphicalUI {
 		frmMonsterFighter.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMonsterFighter.getContentPane().setLayout(new CardLayout(0, 0));
 		
-		setupPanel = (new SetupPanelControl(this)).getPanel();
-		frmMonsterFighter.getContentPane().add(setupPanel, "name_4315045860299");
+		setupControl = new SetupPanelControl(this);
+		setupPanel = setupControl.getPanel();
+		frmMonsterFighter.getContentPane().add(setupPanel, "setup");
 		
 	}
 	
 	public void setupGame() {
-		menuPanel = (new MenuPanelControl(this)).getPanel();
-		frmMonsterFighter.getContentPane().add(menuPanel, "name_4317081042700");
-		squadPanel = (new SquadPanelControl(this).getPanel());
-		frmMonsterFighter.getContentPane().add(squadPanel, "name_4317081042699");
+		menuControl = new MenuPanelControl(this);
+		menuPanel = menuControl.getPanel();
+		frmMonsterFighter.getContentPane().add(menuPanel, "menu");
+		
+		squadControl = new SquadPanelControl(this);
+		squadPanel = squadControl.getPanel();
+		frmMonsterFighter.getContentPane().add(squadPanel, "squad");
+		
+		inventoryControl = new InventoryPanelControl(this);
+		inventoryPanel = inventoryControl.getPanel();
+		frmMonsterFighter.getContentPane().add(inventoryPanel, "inventory");
+		
+		shopControl = new ShopPanelControl(this);
+		shopPanel = shopControl.getPanel();
+		frmMonsterFighter.getContentPane().add(shopPanel, "shop");
 	}
 	
-	public JPanel getMenu() {
+	public JFrame getFrame() {
+		return frmMonsterFighter;
+	}
+	
+	public JPanel getSetupPanel() {
+		setupPanel.removeAll();
+		setupPanel.revalidate();
+		setupPanel.repaint();
+		setupControl.build();
+		return setupPanel;
+	}
+	
+	public JPanel getMenuPanel() {
+		menuPanel.removeAll();
+		menuPanel.revalidate();
+		menuPanel.repaint();
+		menuControl.build();
 		return menuPanel;
 	}
 	
 	public JPanel getSquadPanel() {
+		squadPanel.removeAll();
+		squadPanel.revalidate();
+		squadPanel.repaint();
+		squadControl.build();
 		return squadPanel;
+	}
+	
+	public JPanel getInventoryPanel() {
+		inventoryPanel.removeAll();
+		inventoryPanel.revalidate();
+		inventoryPanel.repaint();
+		inventoryControl.build();
+		return inventoryPanel;
+	}
+	
+	public JPanel getShopPanel() {
+		shopPanel.removeAll();
+		shopPanel.revalidate();
+		shopPanel.repaint();
+		shopControl.build();
+		return shopPanel;
 	}
 	
 	public GameEnvironment getGame() {

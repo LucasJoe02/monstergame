@@ -35,6 +35,8 @@ public class MenuPanelControl implements PanelControl{
 		JButton shopButton = new JButton("Visit Shop");
 		shopButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				menuPanel.setVisible(false);
+				gui.getShopPanel().setVisible(true);
 			}
 		});
 		shopButton.setBounds(10, 243, 135, 55);
