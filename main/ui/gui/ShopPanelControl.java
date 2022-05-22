@@ -33,20 +33,13 @@ public class ShopPanelControl implements PanelControl{
 		build();
 	}
 	
-	public void pickMonsterName(Monster mons) {
-		String result = JOptionPane.showInputDialog("Give your new monster a name or leave blank for default");
-		if (result != null && result.length()>=1) {
-	        mons.setName(result);
-		}
-	}
-	
 	public void buyMons(int monsIndex) {
 		int squadSize = game.getPlayer().getSquad().getMonsters().size();
 		int monsterPrice = game.getShop().getMonsters().get(monsIndex).getPurchasePrice();
 		int playerGold = game.getPlayer().getGold();
 		if ( squadSize < 5 && playerGold >= monsterPrice) {
 			game.getShop().purchaseMonster(monsIndex);
-			pickMonsterName(game.getPlayer().getSquad().getMonsters().get(squadSize));
+			gui.pickMonsterName(game.getPlayer().getSquad().getMonsters().get(squadSize));
 			shopPanel.setVisible(false);
 			gui.getShopPanel().setVisible(true);
 			errorLabel.setText("");
@@ -99,12 +92,12 @@ public class ShopPanelControl implements PanelControl{
 		shopMons0Label.setBorder(new LineBorder(Color.BLACK, 1, true));
 		shopMons0Label.setVerticalAlignment(SwingConstants.TOP);
 		shopMons0Label.setHorizontalAlignment(SwingConstants.CENTER);
-		shopMons0Label.setBounds(10, 36, 179, 138);
+		shopMons0Label.setBounds(10, 44, 179, 130);
 		monsLabels.add(shopMons0Label);
 		shopPanel.add(shopMons0Label);
 		
 		JLabel monsPrice0Label = new JLabel("Price:");
-		monsPrice0Label.setBounds(20, 185, 80, 23);
+		monsPrice0Label.setBounds(10, 173, 80, 23);
 		monsPriceLabels.add(monsPrice0Label);
 		shopPanel.add(monsPrice0Label);
 		
@@ -114,7 +107,7 @@ public class ShopPanelControl implements PanelControl{
 				buyMons(0);
 			}
 		});
-		buyMons0Button.setBounds(100, 185, 89, 23);
+		buyMons0Button.setBounds(100, 173, 89, 23);
 		monsButtons.add(buyMons0Button);
 		buyMons0Button.setVisible(false);
 		shopPanel.add(buyMons0Button);
@@ -123,12 +116,12 @@ public class ShopPanelControl implements PanelControl{
 		shopMons1Label.setBorder(new LineBorder(Color.BLACK, 1, true));
 		shopMons1Label.setVerticalAlignment(SwingConstants.TOP);
 		shopMons1Label.setHorizontalAlignment(SwingConstants.CENTER);
-		shopMons1Label.setBounds(199, 36, 179, 138);
+		shopMons1Label.setBounds(199, 44, 179, 130);
 		monsLabels.add(shopMons1Label);
 		shopPanel.add(shopMons1Label);
 		
 		JLabel monsPrice1Label = new JLabel("Price:");
-		monsPrice1Label.setBounds(209, 185, 80, 23);
+		monsPrice1Label.setBounds(199, 173, 80, 23);
 		monsPriceLabels.add(monsPrice1Label);
 		shopPanel.add(monsPrice1Label);
 		
@@ -138,7 +131,7 @@ public class ShopPanelControl implements PanelControl{
 				buyMons(1);
 			}
 		});
-		buyMons1Button.setBounds(289, 185, 89, 23);
+		buyMons1Button.setBounds(289, 173, 89, 23);
 		monsButtons.add(buyMons1Button);
 		buyMons1Button.setVisible(false);
 		shopPanel.add(buyMons1Button);
@@ -147,12 +140,12 @@ public class ShopPanelControl implements PanelControl{
 		shopMons2Label.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		shopMons2Label.setVerticalAlignment(SwingConstants.TOP);
 		shopMons2Label.setHorizontalAlignment(SwingConstants.CENTER);
-		shopMons2Label.setBounds(388, 36, 179, 138);
+		shopMons2Label.setBounds(388, 44, 179, 130);
 		monsLabels.add(shopMons2Label);
 		shopPanel.add(shopMons2Label);
 		
 		JLabel monsPrice2Label = new JLabel("Price:");
-		monsPrice2Label.setBounds(398, 185, 80, 23);
+		monsPrice2Label.setBounds(388, 173, 80, 23);
 		monsPriceLabels.add(monsPrice2Label);
 		shopPanel.add(monsPrice2Label);
 		
@@ -162,7 +155,7 @@ public class ShopPanelControl implements PanelControl{
 				buyMons(2);
 			}
 		});
-		buyMons2Button.setBounds(478, 185, 89, 23);
+		buyMons2Button.setBounds(478, 173, 89, 23);
 		monsButtons.add(buyMons2Button);
 		buyMons2Button.setVisible(false);
 		shopPanel.add(buyMons2Button);
@@ -178,7 +171,7 @@ public class ShopPanelControl implements PanelControl{
 		
 		JLabel itemPrice0Label = new JLabel("Price:");
 		itemPrice0Label.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		itemPrice0Label.setBounds(10, 316, 44, 23);
+		itemPrice0Label.setBounds(10, 305, 44, 23);
 		itemPriceLabels.add(itemPrice0Label);
 		shopPanel.add(itemPrice0Label);
 		
@@ -188,7 +181,7 @@ public class ShopPanelControl implements PanelControl{
 				buyItem(0);
 			}
 		});
-		buyItem0Button.setBounds(54, 316, 89, 23);
+		buyItem0Button.setBounds(54, 305, 89, 23);
 		itemButtons.add(buyItem0Button);
 		buyItem0Button.setVisible(false);
 		shopPanel.add(buyItem0Button);
@@ -204,7 +197,7 @@ public class ShopPanelControl implements PanelControl{
 
 		JLabel itemPrice1Label = new JLabel("Price:");
 		itemPrice1Label.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		itemPrice1Label.setBounds(153, 316, 44, 23);
+		itemPrice1Label.setBounds(153, 305, 44, 23);
 		itemPriceLabels.add(itemPrice1Label);
 		shopPanel.add(itemPrice1Label);
 		
@@ -214,7 +207,7 @@ public class ShopPanelControl implements PanelControl{
 				buyItem(1);
 			}
 		});
-		buyItem1Button.setBounds(197, 316, 89, 23);
+		buyItem1Button.setBounds(199, 305, 89, 23);
 		itemButtons.add(buyItem1Button);
 		buyItem1Button.setVisible(false);
 		shopPanel.add(buyItem1Button);
@@ -230,7 +223,7 @@ public class ShopPanelControl implements PanelControl{
 
 		JLabel itemPrice2Label = new JLabel("Price:");
 		itemPrice2Label.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		itemPrice2Label.setBounds(296, 316, 44, 23);
+		itemPrice2Label.setBounds(298, 305, 44, 23);
 		itemPriceLabels.add(itemPrice2Label);
 		shopPanel.add(itemPrice2Label);
 		
@@ -240,7 +233,7 @@ public class ShopPanelControl implements PanelControl{
 				buyItem(2);
 			}
 		});
-		buyItem2Button.setBounds(340, 316, 89, 23);
+		buyItem2Button.setBounds(340, 305, 89, 23);
 		itemButtons.add(buyItem2Button);
 		buyItem2Button.setVisible(false);
 		shopPanel.add(buyItem2Button);
@@ -256,7 +249,7 @@ public class ShopPanelControl implements PanelControl{
 
 		JLabel itemPrice3Label = new JLabel("Price:");
 		itemPrice3Label.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		itemPrice3Label.setBounds(439, 316, 44, 23);
+		itemPrice3Label.setBounds(439, 305, 44, 23);
 		itemPriceLabels.add(itemPrice3Label);
 		shopPanel.add(itemPrice3Label);
 		
@@ -266,7 +259,7 @@ public class ShopPanelControl implements PanelControl{
 				buyItem(3);
 			}
 		});
-		buyItem3Button.setBounds(483, 316, 89, 23);
+		buyItem3Button.setBounds(483, 305, 89, 23);
 		itemButtons.add(buyItem3Button);
 		buyItem3Button.setVisible(false);
 		shopPanel.add(buyItem3Button);
@@ -279,6 +272,16 @@ public class ShopPanelControl implements PanelControl{
 		errorLabel.setForeground(Color.RED);
 		errorLabel.setBounds(147, 354, 302, 14);
 		shopPanel.add(errorLabel);
+		
+		JLabel monsterLabel = new JLabel("Monsters");
+		monsterLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		monsterLabel.setBounds(10, 29, 80, 14);
+		shopPanel.add(monsterLabel);
+		
+		JLabel itemLabel = new JLabel("Items");
+		itemLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
+		itemLabel.setBounds(10, 203, 90, 14);
+		shopPanel.add(itemLabel);
 
 		ArrayList<Monster> monsters = game.getShop().getMonsters();
 		for (int i = 0; i < monsters.size(); i++) {

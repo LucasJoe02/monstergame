@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class SquadPanelControl implements PanelControl{
 	
@@ -49,6 +51,7 @@ public class SquadPanelControl implements PanelControl{
 		ArrayList<JLabel> squadLabels = new ArrayList<JLabel>();
 		
 		JLabel squadMons0 = new JLabel((String) null);
+		squadMons0.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		squadMons0.setVerticalAlignment(SwingConstants.TOP);
 		squadMons0.setHorizontalAlignment(SwingConstants.CENTER);
 		squadMons0.setBounds(10, 36, 179, 138);
@@ -56,6 +59,7 @@ public class SquadPanelControl implements PanelControl{
 		squadPanel.add(squadMons0);
 		
 		JLabel squadMons1 = new JLabel((String) null);
+		squadMons1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		squadMons1.setVerticalAlignment(SwingConstants.TOP);
 		squadMons1.setHorizontalAlignment(SwingConstants.CENTER);
 		squadMons1.setBounds(199, 36, 179, 138);
@@ -63,6 +67,7 @@ public class SquadPanelControl implements PanelControl{
 		squadPanel.add(squadMons1);
 		
 		JLabel squadMons2 = new JLabel((String) null);
+		squadMons2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		squadMons2.setVerticalAlignment(SwingConstants.TOP);
 		squadMons2.setHorizontalAlignment(SwingConstants.CENTER);
 		squadMons2.setBounds(10, 185, 179, 138);
@@ -70,6 +75,7 @@ public class SquadPanelControl implements PanelControl{
 		squadPanel.add(squadMons2);
 		
 		JLabel squadMons3 = new JLabel((String) null);
+		squadMons3.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		squadMons3.setVerticalAlignment(SwingConstants.TOP);
 		squadMons3.setHorizontalAlignment(SwingConstants.CENTER);
 		squadMons3.setBounds(199, 185, 179, 138);

@@ -82,6 +82,8 @@ public class SetupPanelControl implements PanelControl{
 					game.setMaxDays(daySlider.getValue());
 					Monster chosenMonster = availableMonsters.get(diffSlider_1.getValue());
 					game.setPlayer(usernameField.getText(), chosenMonster);
+					int squadSize = game.getPlayer().getSquad().getMonsters().size();
+					gui.pickMonsterName(game.getPlayer().getSquad().getMonsters().get(squadSize-1));
 					setupPanel.setVisible(false);
 					gui.setupGame();
 					gui.getMenuPanel().setVisible(true);
