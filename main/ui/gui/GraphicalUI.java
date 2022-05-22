@@ -3,9 +3,11 @@ package main.ui.gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import main.environment.GameEnvironment;
+import main.monster.Monster;
 
 import java.awt.CardLayout;
 
@@ -130,6 +132,13 @@ public class GraphicalUI {
 	
 	public GameEnvironment getGame() {
 		return game;
+	}
+	
+	public void pickMonsterName(Monster mons) {
+		String result = JOptionPane.showInputDialog("Give your new monster a name or leave blank for default");
+		if (result != null && result.length()>=1) {
+	        mons.setName(result);
+		}
 	}
 	
 }
