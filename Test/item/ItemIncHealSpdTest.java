@@ -24,10 +24,10 @@ class ItemIncHealSpdTest {
 	public void useItemTest() {
 		GameEnvironment game =initial();
 		ItemIncHealSpd testItem = new ItemIncHealSpd();
-		//int initHP = game.getPlayer().getSquad().getMonsters().get(0).getHealAmount();
+		int initHP = game.getPlayer().getSquad().getMonsters().get(0).getHealAmount();
 		testItem.useItem(game.getPlayer().getSquad().getMonsters().get(0));
-		//int postHP = game.getPlayer().getSquad().getMonsters().get(0).getHealAmount();
-		//assertTrue(initHP < postHP);
+		int postHP = game.getPlayer().getSquad().getMonsters().get(0).getHealAmount();
+		assertTrue(initHP < postHP);
 	}
 
 }

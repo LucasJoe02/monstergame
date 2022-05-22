@@ -150,6 +150,14 @@ public class Monster {
 	}
 	
 	/**
+	 * Gets the heal amount of this Monster
+	 * @return this Monster's heal amount
+	 */
+	public int getHealAmount() {
+		return healAmount;
+	}
+	
+	/**
 	 * Gets the maximum health of this Monster.
 	 * @return this Monster's maximum health.
 	 */
