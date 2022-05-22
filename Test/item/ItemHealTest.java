@@ -30,6 +30,7 @@ class ItemHealTest {
 		int postHP = game.getPlayer().getSquad().getMonsters().get(0).getHealth();
 		assertTrue(initHP < postHP);
 	}
+	//use Items 
 	
 	@Test
 	public void toStringHTMLTest() {
