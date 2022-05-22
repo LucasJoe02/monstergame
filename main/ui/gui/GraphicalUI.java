@@ -24,6 +24,8 @@ public class GraphicalUI {
 	private InventoryPanelControl inventoryControl;
 	private JPanel shopPanel;
 	private ShopPanelControl shopControl;
+	private JPanel sellShopPanel;
+	private SellShopPanelControl sellShopControl;
 	private GameEnvironment game;
 	
 
@@ -84,6 +86,10 @@ public class GraphicalUI {
 		shopControl = new ShopPanelControl(this);
 		shopPanel = shopControl.getPanel();
 		frmMonsterFighter.getContentPane().add(shopPanel, "shop");
+		
+		sellShopControl = new SellShopPanelControl(this);
+		sellShopPanel = sellShopControl.getPanel();
+		frmMonsterFighter.getContentPane().add(sellShopPanel, "sell shop");
 	}
 	
 	public JFrame getFrame() {
@@ -128,6 +134,14 @@ public class GraphicalUI {
 		shopPanel.repaint();
 		shopControl.build();
 		return shopPanel;
+	}
+	
+	public JPanel getSellShopPanel() {
+		sellShopPanel.removeAll();
+		sellShopPanel.revalidate();
+		sellShopPanel.repaint();
+		sellShopControl.build();
+		return sellShopPanel;
 	}
 	
 	public GameEnvironment getGame() {

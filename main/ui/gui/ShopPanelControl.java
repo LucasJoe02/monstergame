@@ -70,6 +70,10 @@ public class ShopPanelControl implements PanelControl{
 		shopPanel.add(titleLabel);
 		shopPanel.setLayout(null);	
 		
+		JLabel goldLabel = new JLabel("Gold: "+game.getPlayer().getGold());
+		goldLabel.setBounds(463, 11, 127, 14);
+		shopPanel.add(goldLabel);
+		
 		JButton btnNewButton = new JButton("Main Menu");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -265,6 +269,12 @@ public class ShopPanelControl implements PanelControl{
 		shopPanel.add(buyItem3Button);
 		
 		JButton sellShopButton = new JButton("Sell Items");
+		sellShopButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				shopPanel.setVisible(false);
+				gui.getSellShopPanel().setVisible(true);
+			}
+		});
 		sellShopButton.setBounds(10, 350, 127, 23);
 		shopPanel.add(sellShopButton);
 		

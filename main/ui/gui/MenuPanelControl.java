@@ -78,18 +78,18 @@ public class MenuPanelControl implements PanelControl{
 		sleepButton.setBounds(463, 350, 127, 23);
 		menuPanel.add(sleepButton);
 		
-		JLabel lblNewLabel = new JLabel(game.getPlayer().getName());
-		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel.setBounds(20, 36, 157, 14);
-		menuPanel.add(lblNewLabel);
+		JLabel nameLabel = new JLabel(game.getPlayer().getName());
+		nameLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		nameLabel.setBounds(20, 36, 157, 14);
+		menuPanel.add(nameLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Day: "+game.getDay()+"/"+game.getMaxDays());
-		lblNewLabel_1.setBounds(20, 61, 147, 14);
-		menuPanel.add(lblNewLabel_1);
+		JLabel dayLabel = new JLabel("Day: "+game.getDay()+"/"+game.getMaxDays());
+		dayLabel.setBounds(20, 61, 147, 14);
+		menuPanel.add(dayLabel);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Gold: "+game.getPlayer().getGold());
-		lblNewLabel_1_1.setBounds(20, 86, 147, 14);
-		menuPanel.add(lblNewLabel_1_1);
+		JLabel goldLabel = new JLabel("Gold: "+game.getPlayer().getGold());
+		goldLabel.setBounds(20, 86, 147, 14);
+		menuPanel.add(goldLabel);
 	}
 	
 	@Override
