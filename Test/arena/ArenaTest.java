@@ -10,8 +10,7 @@ import main.monster.Monster;
 
 class ArenaTest {
 
-	private GameEnvironment game;
-	private Enemy enemy;
+	
 	
 	public GameEnvironment initial() {
 		GameEnvironment game = new GameEnvironment();

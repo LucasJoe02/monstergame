@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import main.environment.GameEnvironment;
 import main.item.ItemHeal;
+import main.item.ItemIncreaseAttack;
 import main.monster.Monster;
 
 class ItemHealTest {
@@ -28,6 +29,13 @@ class ItemHealTest {
 		testItemHeal.useItem(game.getPlayer().getSquad().getMonsters().get(0));
 		int postHP = game.getPlayer().getSquad().getMonsters().get(0).getHealth();
 		assertTrue(initHP < postHP);
+	}
+	
+	@Test
+	public void toStringHTMLTest() {
+		ItemHeal testItem = new ItemHeal();
+		String testString = testItem.toStringHTML();
+		assertEquals(testString, "<html>"+testItem.getDesc());
 	}
 
 }

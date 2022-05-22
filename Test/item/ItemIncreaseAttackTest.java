@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import main.environment.GameEnvironment;
 import main.item.ItemIncHealSpd;
+import main.item.ItemIncMaxHP;
 import main.item.ItemIncreaseAttack;
 import main.monster.Monster;
 
@@ -30,4 +31,11 @@ class ItemIncreaseAttackTest {
 		assertTrue(initHP < postHP);
 	}
 
+	@Test
+	public void toStringHTMLTest() {
+		ItemIncreaseAttack testItem = new ItemIncreaseAttack();
+		String testString = testItem.toStringHTML();
+		assertEquals(testString, "<html>"+testItem.getDesc());
+	}
+	
 }

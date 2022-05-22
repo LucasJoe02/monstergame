@@ -29,5 +29,12 @@ class ItemIncHealSpdTest {
 		int postHP = game.getPlayer().getSquad().getMonsters().get(0).getHealAmount();
 		assertTrue(initHP < postHP);
 	}
+	
+	@Test
+	public void toStringHTMLTest() {
+		ItemIncHealSpd testItem = new ItemIncHealSpd();
+		String testString = testItem.toStringHTML();
+		assertEquals(testString, "<html>"+testItem.getDesc());
+	}
 
 }

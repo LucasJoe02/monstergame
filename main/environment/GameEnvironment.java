@@ -125,6 +125,13 @@ public class GameEnvironment {
 		return day;
 	}
 	
+	/**
+	 * Sets the current day
+	 */
+	public void setDay(int Day) {
+		day = Day;
+	}
+	
 	/** 
 	 * Increases the day of the game by one. 
 	 */

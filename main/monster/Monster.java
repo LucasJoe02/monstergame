@@ -174,6 +174,14 @@ public class Monster {
 	}
 	
 	/**
+	 * Gets the level of the Monster.
+	 * @return this Monster's level.
+	 */
+	public int getLevel() {
+		return level;
+	}
+	
+	/**
 	 * Gets the attack damage of this Monster.
 	 * @return this Monster's attack damage.
 	 */

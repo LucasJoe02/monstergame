@@ -29,5 +29,12 @@ class ItemIncMaxHPTest {
 		int postHP = game.getPlayer().getSquad().getMonsters().get(0).getMaxHealth();
 		assertTrue(initHP < postHP);
 	}
+	
+	@Test
+	public void toStringHTMLTest() {
+		ItemIncMaxHP testItem = new ItemIncMaxHP();
+		String testString = testItem.toStringHTML();
+		assertEquals(testString, "<html>"+testItem.getDesc());
+	}
 
 }
