@@ -204,13 +204,13 @@ public class GameEnvironment {
 		if (rand < 50) {
 			Monster lvlUpMonst = monsters.get(Math.abs(rng.nextInt()%monsters.size()));
 			lvlUpMonst.levelUp();
-			nightEvents += lvlUpMonst.getName()+" levelled up!";
+			nightEvents += lvlUpMonst.getName()+" levelled up! ";
 		}
 		rand = rng.nextInt(100);
 		if (rand < 10) {
 			Monster leaveMonst = monsters.get(Math.abs(rng.nextInt()%monsters.size()));
 			if (leaveMonst.getIsFainted()==true && monsters.size() > 1) {
-				nightEvents += leaveMonst.getName()+" ran away!";
+				nightEvents += leaveMonst.getName()+" ran away! ";
 				monsters.remove(leaveMonst);
 			}
 		}
@@ -219,7 +219,7 @@ public class GameEnvironment {
 			if (rng.nextInt()%5>monsters.size() && monsters.size()<4) {
 				Monster newMonst = monsterCreator.createRandom();
 				monsters.add(newMonst);
-				nightEvents += "Monster "+newMonst.getName()+" joined overnight!";
+				nightEvents += "Monster "+newMonst.getName()+" joined overnight! ";
 			}
 		}
 		return nightEvents;

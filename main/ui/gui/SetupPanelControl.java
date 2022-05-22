@@ -23,6 +23,7 @@ import main.monster.MonsterCreator;
 import java.awt.Color;
 
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class SetupPanelControl implements PanelControl{
 
@@ -42,7 +43,7 @@ public class SetupPanelControl implements PanelControl{
 	private JLabel startMonsLabel0;
 	private JLabel startMonsLabel1;
 	private JLabel startMonsLabel2;
-	private JSlider diffSlider_1;
+	private JSlider monsSlider;
 	private ArrayList<Monster> availableMonsters;
 	private GameEnvironment game;
 	
@@ -80,7 +81,7 @@ public class SetupPanelControl implements PanelControl{
 				if (isValidName(usernameField.getText())) {
 					game.setDifficulty(diffSlider.getValue());
 					game.setMaxDays(daySlider.getValue());
-					Monster chosenMonster = availableMonsters.get(diffSlider_1.getValue());
+					Monster chosenMonster = availableMonsters.get(monsSlider.getValue());
 					game.setPlayer(usernameField.getText(), chosenMonster);
 					int squadSize = game.getPlayer().getSquad().getMonsters().size();
 					gui.pickMonsterName(game.getPlayer().getSquad().getMonsters().get(squadSize-1));
@@ -180,31 +181,34 @@ public class SetupPanelControl implements PanelControl{
 		setupPanel.add(usernameError);
 		
 		startMonsLabel0 = new JLabel(availableMonsters.get(0).toStringHTML());
+		startMonsLabel0.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		startMonsLabel0.setHorizontalAlignment(SwingConstants.CENTER);
 		startMonsLabel0.setVerticalAlignment(SwingConstants.TOP);
 		startMonsLabel0.setBounds(10, 210, 179, 138);
 		setupPanel.add(startMonsLabel0);
 		
 		startMonsLabel1 = new JLabel(availableMonsters.get(1).toStringHTML());
+		startMonsLabel1.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		startMonsLabel1.setHorizontalAlignment(SwingConstants.CENTER);
 		startMonsLabel1.setVerticalAlignment(SwingConstants.TOP);
 		startMonsLabel1.setBounds(199, 210, 179, 138);
 		setupPanel.add(startMonsLabel1);
 		
 		startMonsLabel2 = new JLabel(availableMonsters.get(2).toStringHTML());
+		startMonsLabel2.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 		startMonsLabel2.setHorizontalAlignment(SwingConstants.CENTER);
 		startMonsLabel2.setVerticalAlignment(SwingConstants.TOP);
 		startMonsLabel2.setBounds(388, 210, 179, 138);
 		setupPanel.add(startMonsLabel2);
 		
-		diffSlider_1 = new JSlider();
-		diffSlider_1.setPaintTrack(false);
-		diffSlider_1.setSnapToTicks(true);
-		diffSlider_1.setPaintTicks(true);
-		diffSlider_1.setMaximum(2);
-		diffSlider_1.setMajorTickSpacing(1);
-		diffSlider_1.setBounds(92, 188, 393, 23);
-		setupPanel.add(diffSlider_1);
+		monsSlider = new JSlider();
+		monsSlider.setPaintTrack(false);
+		monsSlider.setSnapToTicks(true);
+		monsSlider.setPaintTicks(true);
+		monsSlider.setMaximum(2);
+		monsSlider.setMajorTickSpacing(1);
+		monsSlider.setBounds(95, 181, 393, 23);
+		setupPanel.add(monsSlider);
 	}
 	
 	@Override

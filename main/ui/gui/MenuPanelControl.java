@@ -1,6 +1,7 @@
 package main.ui.gui;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import main.environment.GameEnvironment;
@@ -65,6 +66,8 @@ public class MenuPanelControl implements PanelControl{
 		JButton arenaButton = new JButton("Enter Arena");
 		arenaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				menuPanel.setVisible(false);
+				gui.getArenaPanel().setVisible(true);
 			}
 		});
 		arenaButton.setBounds(10, 309, 135, 55);
@@ -73,6 +76,18 @@ public class MenuPanelControl implements PanelControl{
 		JButton sleepButton = new JButton("Sleep");
 		sleepButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nightEvents = game.sleep();
+				if (nightEvents == "") {
+					nightEvents = "Twas a peaceful night";
+				}
+				if (game.getDay() <= game.getMaxDays()) {
+					menuPanel.setVisible(false);
+					gui.getMenuPanel().setVisible(true);
+					JOptionPane.showMessageDialog(gui.getFrame(),"<html>"+nightEvents);
+				}else {
+					menuPanel.setVisible(false);
+					gui.getGameOverPanel().setVisible(true);
+				}
 			}
 		});
 		sleepButton.setBounds(463, 350, 127, 23);

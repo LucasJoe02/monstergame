@@ -38,15 +38,15 @@ public class SquadPanelControl implements PanelControl{
 		squadPanel.add(titleLabel);
 		squadPanel.setLayout(null);	
 		
-		JButton btnNewButton = new JButton("Main Menu");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton menuButton = new JButton("Main Menu");
+		menuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				squadPanel.setVisible(false);
 				gui.getMenuPanel().setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(463, 350, 127, 23);
-		squadPanel.add(btnNewButton);
+		menuButton.setBounds(463, 350, 127, 23);
+		squadPanel.add(menuButton);
 		
 		ArrayList<JLabel> squadLabels = new ArrayList<JLabel>();
 		

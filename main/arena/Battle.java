@@ -64,10 +64,10 @@ public class Battle {
 					faintedInt+=1;
 				}
 			}
-			summary = "You won!\nYou gained "+enemy.getGold()+" gold and "+enemy.getPoints()+" points.\n"
+			summary = "You won! \nYou gained "+enemy.getGold()+" gold and "+enemy.getPoints()+" points. \n"
 					  +faintedInt+" of your monsters are now fainted.";
 		}else {
-			summary = "You lost! all of your monsters fainted.\nUse healer items or sleep to heal your monsters.";
+			summary = "You lost! all of your monsters fainted. \nUse healer items or sleep to heal your monsters.";
 		}
 		return summary;
 	}
