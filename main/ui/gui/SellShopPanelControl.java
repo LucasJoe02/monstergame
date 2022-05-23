@@ -4,7 +4,6 @@ package main.ui.gui;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import main.environment.GameEnvironment;
 import main.item.Item;
@@ -14,41 +13,50 @@ import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
 import java.awt.Color;
 
+/**
+ * This class implements a controller for a
+ * JPanel that shows the sell shop screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class SellShopPanelControl implements PanelControl{
-	
+
+	/**
+	 * The JPanel that this SellShopPanelControl implements.
+	 */
 	private JPanel sellShopPanel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
+	/**
+	 * The JLabel that displays error messages in the sell shop.
+	 */
 	private JLabel errorLabel;
 
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for viewing the sell shop.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public SellShopPanelControl(GraphicalUI gui) {
 		sellShopPanel = new JPanel();
 		this.gui = gui;
 		this.game = this.gui.getGame();
 		build();
-	}
-	
-	public String[] itemNameList(ArrayList<Item> items) {
-		String[] itemNames = new String[items.size()];
-		for (int i = 0; i < items.size(); i++) {
-			itemNames[i] = items.get(i).getName();
-		}
-		return itemNames;
-	}
-	
-	public String[] monsterNameList(ArrayList<Monster> monsters) {
-		String[] monsNames = new String[monsters.size()];
-		for (int i = 0; i < monsters.size(); i++) {
-			monsNames[i] = monsters.get(i).getName();
-		}
-		return monsNames;
 	}
 	
 	@Override
@@ -67,12 +75,12 @@ public class SellShopPanelControl implements PanelControl{
 		goldLabel.setBounds(463, 11, 127, 14);
 		sellShopPanel.add(goldLabel);
 		
-		String[] itemNames = itemNameList(itemsList);
+		String[] itemNames = gui.itemNameList(itemsList);
 		JList itemsNameList = new JList(itemNames);
 		itemsNameList.setBounds(10, 80, 146, 259);
 		sellShopPanel.add(itemsNameList);
 		
-		String[] monsterNames = monsterNameList(monsList);
+		String[] monsterNames = gui.monsterNameList(monsList);
 		JList monsNameList = new JList(monsterNames);
 		monsNameList.setBounds(191, 80, 146, 259);
 		sellShopPanel.add(monsNameList);

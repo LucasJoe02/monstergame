@@ -14,13 +14,36 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
-
+/**
+ * This class implements a controller for a
+ * JPanel that shows the game over screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class GameOverPanelControl implements PanelControl{
-	
+
+	/**
+	 * The JPanel that this GameOverPanelControl implements.
+	 */
 	private JPanel gamOverPanel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
 
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for the game over screen.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public GameOverPanelControl(GraphicalUI gui) {
 		gamOverPanel = new JPanel();
 		this.gui = gui;
@@ -41,8 +64,6 @@ public class GameOverPanelControl implements PanelControl{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				gui.restart();
-//				gamOverPanel.setVisible(false);
-//				gui.getSetupPanel().setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(463, 350, 127, 23);

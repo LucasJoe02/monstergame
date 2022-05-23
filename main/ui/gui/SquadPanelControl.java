@@ -17,12 +17,36 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 
+/**
+ * This class implements a controller for a
+ * JPanel that shows the view squad screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class SquadPanelControl implements PanelControl{
 	
+	/**
+	 * The JPanel that this SquadPanelControl implements.
+	 */
 	private JPanel squadPanel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
 
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for viewing the squad.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public SquadPanelControl(GraphicalUI gui) {
 		squadPanel = new JPanel();
 		this.gui = gui;

@@ -1,5 +1,6 @@
 package main.ui.gui;
 
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -12,12 +13,36 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
+/**
+ * This class implements a controller for a
+ * JPanel that shows the main menu screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class MenuPanelControl implements PanelControl{
 	
+	/**
+	 * The JPanel that this MenuPanelControl implements.
+	 */
 	private JPanel menuPanel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
 
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for a game's main menu.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public MenuPanelControl(GraphicalUI gui) {
 		menuPanel = new JPanel();
 		this.gui = gui;

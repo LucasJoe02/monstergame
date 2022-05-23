@@ -6,3 +6,4 @@ main.monster
 main.player
 main.shop
 main.ui
+main.ui.gui

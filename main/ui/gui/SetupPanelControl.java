@@ -1,5 +1,6 @@
 package main.ui.gui;
 
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,28 +26,101 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+/**
+ * This class implements a controller for a
+ * JPanel that shows the setup screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class SetupPanelControl implements PanelControl{
 
+	/**
+	 * The JPanel that this SetupPanelControl implements.
+	 */
 	private JPanel setupPanel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The JLabel showing the title of the panel.
+	 */
 	private JLabel titleLabel;
+	/**
+	 * The JLabel asking the user to input a name.
+	 */
 	private JLabel usernameLabel;
+	/**
+	 * The JLabel asking for the user to select an amount of days.
+	 */
 	private JLabel daysLabel;
+	/**
+	 * The JLabel asking the user to select a difficulty.
+	 */
 	private JLabel diffLabel;
+	/**
+	 * The JLabel showing the currently selected difficulty.
+	 */
 	private JLabel difficultyStatusLabel;
+	/**
+	 * The JSLider to select the difficulty.
+	 */
 	private JSlider diffSlider;
+	/**
+	 * The JLabel asking the player to select a start monster.
+	 */
 	private JLabel startMonsLabel;
+	/**
+	 * The JTextField for the user to fill out with their user name.
+	 */
 	private JTextField usernameField;
+	/**
+	 * The JLabel showing the currently selected max days.
+	 */
 	private JLabel maxDaysStatusLabel;
+	/**
+	 * The JSLider for the user to select the max amount of days.
+	 */
 	private JSlider daySlider;
+	/**
+	 * The JLabel that shows an error message if the wrong input
+	 * is entered for the user name.
+	 */
 	private JLabel usernameError;
+	/**
+	 * The JLabel showing the first available start monster.
+	 */
 	private JLabel startMonsLabel0;
+	/**
+	 * The JLabel showing the second available start monster.
+	 */
 	private JLabel startMonsLabel1;
+	/**
+	 * The JLabel showing the third available start monster.
+	 */
 	private JLabel startMonsLabel2;
+	/**
+	 * The JSLider for the user to choose a start monster.
+	 */
 	private JSlider monsSlider;
+	/**
+	 * The ArrayList of available start monsters.
+	 */
 	private ArrayList<Monster> availableMonsters;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
 	
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for setting up a game.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public SetupPanelControl(GraphicalUI gui) {
 		setupPanel = new JPanel();
 		this.gui = gui;
@@ -55,6 +129,12 @@ public class SetupPanelControl implements PanelControl{
 		build();
 	}
 	
+	/**
+	 * Checks if a String name is longer than 3, shorter
+	 * than 15 and contains no special characters.
+	 * @param name the String name that is being checked
+	 * @return a boolean value that is true if the name is valid
+	 */
 	private boolean isValidName(String name) {
 		Pattern pattern = Pattern.compile("[^a-zA-Z]");
 		Matcher matcher = pattern.matcher(name);
@@ -65,6 +145,10 @@ public class SetupPanelControl implements PanelControl{
 		return valid;
 	}
 	
+	/**
+	 * Initializes the available monsters list and fills it
+	 * with generated common monsters.
+	 */
 	private void makeStarterMonsters() {
 		MonsterCreator monsterCreator = new MonsterCreator();
 		availableMonsters = new ArrayList<Monster>();

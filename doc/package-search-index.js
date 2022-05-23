@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"main"},{"l":"main.arena"},{"l":"main.environment"},{"l":"main.item"},{"l":"main.monster"},{"l":"main.player"},{"l":"main.shop"},{"l":"main.ui"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"main"},{"l":"main.arena"},{"l":"main.environment"},{"l":"main.item"},{"l":"main.monster"},{"l":"main.player"},{"l":"main.shop"},{"l":"main.ui"},{"l":"main.ui.gui"}];updateSearchResults();

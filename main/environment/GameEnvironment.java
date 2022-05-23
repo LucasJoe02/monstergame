@@ -126,10 +126,11 @@ public class GameEnvironment {
 	}
 	
 	/**
-	 * Sets the current day
+	 * Sets the current day.
+	 * @param day the integer day to change the current day to.
 	 */
-	public void setDay(int Day) {
-		day = Day;
+	public void setDay(int day) {
+		this.day = day;
 	}
 	
 	/** 

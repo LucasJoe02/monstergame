@@ -5,11 +5,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import main.arena.Enemy;
 import main.environment.GameEnvironment;
-import main.item.Item;
 import main.monster.Monster;
 import main.monster.Squad;
 
@@ -17,22 +15,49 @@ import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
 import java.awt.Color;
 
+/**
+ * This class implements a controller for a
+ * JPanel that shows the arena screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class ArenaPanelControl implements PanelControl{
 	
+	/**
+	 * The JPanel that this ArenaPanelControl implements.
+	 */
 	private JPanel arenaPanel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
+	/**
+	 * The JLabel that displays error messages in the sell shop.
+	 */
 	private JLabel errorLabel;
-//	private JList enemySquadList;
+	/**
+	 * The JLabel that displays the output of a battle.
+	 */
 	private JLabel battleOutputLabel;
 
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for visiting the arena.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public ArenaPanelControl(GraphicalUI gui) {
 		arenaPanel = new JPanel();
 		this.gui = gui;
@@ -40,15 +65,29 @@ public class ArenaPanelControl implements PanelControl{
 		build();
 	}
 	
+	/**
+	 * Takes an ArrayList of enemies and returns an array of their
+	 * names, and their reward.
+	 * @param enemies the ArrayList of Enemy objects
+	 * @return the array of Strings of the enemies names and rewards
+	 */
 	public String[] enemyNameList(ArrayList<Enemy> enemies) {
 		String[] enemyNames = new String[enemies.size()];
 		for (int i = 0; i < enemies.size(); i++) {
 			Enemy enemy = enemies.get(i);
-			enemyNames[i] = enemy.getName()+".     Reward: "+enemy.getGold()+" gold, "+enemy.getPoints()+" points";
+			enemyNames[i] = enemy.getName()+".     Reward: "
+							+enemy.getGold()+" gold, "
+							+enemy.getPoints()+" points";
 		}
 		return enemyNames;
 	}
 	
+	/**
+	 * Takes an ArrayList of monsters and returns them as an array of
+	 * their String descriptions.
+	 * @param monsters the ArrayList of Monster objects.
+	 * @return the array of strings describing each monster
+	 */
 	public String[] enemySquadList(ArrayList<Monster> monsters) {
 		String[] squadDesc = new String[monsters.size()];
 		for (int i = 0; i < monsters.size(); i++) {

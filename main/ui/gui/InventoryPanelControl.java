@@ -4,7 +4,6 @@ package main.ui.gui;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JTable;
 
 import main.environment.GameEnvironment;
 import main.item.Item;
@@ -14,41 +13,50 @@ import java.awt.Font;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JRadioButton;
 import java.awt.Color;
 
+/**
+ * This class implements a controller for a
+ * JPanel that shows the main inventory screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class InventoryPanelControl implements PanelControl{
 	
+	/**
+	 * The JPanel that this InventoryPanelControl implements.
+	 */
 	private JPanel inventoryPanel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
+	/**
+	 * The JLabel that displays error messages in the inventory.
+	 */
 	private JLabel errorLabel;
 
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for viewing the inventory.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public InventoryPanelControl(GraphicalUI gui) {
 		inventoryPanel = new JPanel();
 		this.gui = gui;
 		this.game = this.gui.getGame();
 		build();
-	}
-	
-	public String[] itemNameList(ArrayList<Item> items) {
-		String[] itemNames = new String[items.size()];
-		for (int i = 0; i < items.size(); i++) {
-			itemNames[i] = items.get(i).getName();
-		}
-		return itemNames;
-	}
-	
-	public String[] monsterNameList(ArrayList<Monster> monsters) {
-		String[] monsNames = new String[monsters.size()];
-		for (int i = 0; i < monsters.size(); i++) {
-			monsNames[i] = monsters.get(i).getName();
-		}
-		return monsNames;
 	}
 	
 	@Override
@@ -63,12 +71,12 @@ public class InventoryPanelControl implements PanelControl{
 		inventoryPanel.add(titleLabel);
 		inventoryPanel.setLayout(null);
 		
-		String[] itemNames = itemNameList(itemsList);
+		String[] itemNames = gui.itemNameList(itemsList);
 		JList itemsNameList = new JList(itemNames);
 		itemsNameList.setBounds(10, 80, 146, 293);
 		inventoryPanel.add(itemsNameList);
 		
-		String[] monsterNames = monsterNameList(monsList);
+		String[] monsterNames = gui.monsterNameList(monsList);
 		JList monsNameList = new JList(monsterNames);
 		monsNameList.setBounds(166, 80, 146, 293);
 		inventoryPanel.add(monsNameList);

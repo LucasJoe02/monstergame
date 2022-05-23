@@ -1,12 +1,15 @@
 package main.ui.gui;
 
+
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import main.environment.GameEnvironment;
+import main.item.Item;
 import main.monster.Monster;
 
 import java.awt.CardLayout;
@@ -312,4 +315,29 @@ public class GraphicalUI {
 		}
 	}
 	
+	/**
+	 * Converts an ArrayList of items into an array of the Item's names.
+	 * @param items the ArrayList of items to be converted.
+	 * @return the array of Strings of the item names
+	 */
+	public String[] itemNameList(ArrayList<Item> items) {
+		String[] itemNames = new String[items.size()];
+		for (int i = 0; i < items.size(); i++) {
+			itemNames[i] = items.get(i).getName();
+		}
+		return itemNames;
+	}
+	
+	/**
+	 * Converts an ArrayList of Monsters into an array of the Monster's names.
+	 * @param monsters the ArrayList of monsters to be converted.
+	 * @return the array of Strings of the monsters names
+	 */
+	public String[] monsterNameList(ArrayList<Monster> monsters) {
+		String[] monsNames = new String[monsters.size()];
+		for (int i = 0; i < monsters.size(); i++) {
+			monsNames[i] = monsters.get(i).getName();
+		}
+		return monsNames;
+	}
 }

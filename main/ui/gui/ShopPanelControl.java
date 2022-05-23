@@ -2,7 +2,6 @@ package main.ui.gui;
 
 
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import main.environment.GameEnvironment;
@@ -19,13 +18,40 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 
+/**
+ * This class implements a controller for a
+ * JPanel that shows the shop screen for the
+ * game GUI.
+ * This class builds the JPanel as well as handles
+ * the methods that the JPanel needs to receive
+ * input and display output.
+ * @author Lucas Redding
+ * @version 1.1, May 2022.
+ */
 public class ShopPanelControl implements PanelControl{
 	
+	/**
+	 * The JPanel that this ShopPanelControl implements.
+	 */
 	private JPanel shopPanel;
+	/**
+	 * The JLabel that displays error messages in the shop.
+	 */
 	private JLabel errorLabel;
+	/**
+	 * The GraphicalUI that holds the gui frame and switching between panels.
+	 */
 	private GraphicalUI gui;
+	/**
+	 * The GameEnvironment of the currently running game.
+	 */
 	private GameEnvironment game;
 
+	/**
+	 * The constructor that takes in the GraphicalUI class
+	 * and sets up a new JPanel for visiting the shop.
+	 * @param gui the GraphicalUI that holds the GUI frame.
+	 */
 	public ShopPanelControl(GraphicalUI gui) {
 		shopPanel = new JPanel();
 		this.gui = gui;
@@ -33,6 +59,13 @@ public class ShopPanelControl implements PanelControl{
 		build();
 	}
 	
+	/**
+	 * Checks if the player can buy a given monster from the shop and buys it.
+	 * If the player can buy the monster the player is asked to input a name
+	 * for their new monster.
+	 * If the plater cannot buy the monster an error message is displayed.
+	 * @param monsIndex the integer index of the monster in the shop.
+	 */
 	public void buyMons(int monsIndex) {
 		int squadSize = game.getPlayer().getSquad().getMonsters().size();
 		int monsterPrice = game.getShop().getMonsters().get(monsIndex).getPurchasePrice();
@@ -50,6 +83,11 @@ public class ShopPanelControl implements PanelControl{
 		}
 	}
 	
+	/**
+	 * Checks if the player can buy a given item from the shop and buys it.
+	 * If the plater cannot buy the item an error message is displayed.
+	 * @param itemIndex the integer index of the item in the shop.
+	 */
 	public void buyItem(int itemIndex) {
 		int itemPrice = game.getShop().getItems().get(itemIndex).getPurchasePrice();
 		int playerGold = game.getPlayer().getGold();
