@@ -46,7 +46,10 @@ public class Enemy {
 	/** 
 	 * A list of potential names for this enemy.
 	 */
-	private String[] names = {"Jake", "Nathan", "Bobby Brown", "Mr Purple", "Alvin", "Sweetpea" };
+	private String[] names = {"Jake", "Nathan", "Bobby Brown", "Mr Purple",
+			"Alvin", "Sweetpea", "Altocumulus", "Altostratus", "Cirrus", 
+			"Cumulonimbus", "Cumulus", "Nimbostratus", "Afrovenator",
+			"Bactrosaurus", "Amygdalodon", "Avinimus", "Becklespinax"};
 	/**
 	 * The random number generator used to randomly generate specific variables in creating unique enemies.
 	 */

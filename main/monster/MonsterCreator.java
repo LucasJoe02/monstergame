@@ -21,7 +21,7 @@ public class MonsterCreator {
 	/** 
 	 * The list of possible name prefixes for a Monster being built to have by default.
 	 */
-	private String[] namePrefixes = {"Lava","Rock","Fire","Water","Air","Flame","Ms","Mr","Baby","Blue","Angry","Little","Groﬂ"};
+	private String[] namePrefixes = {"Lava","Rock","Fire","Water","Air","Flame","Ms","Mr","Baby","Blue","Angry","Little"};
 	/** 
 	 * The list of possible name suffixes for a Monster being built to have by default.
 	 */

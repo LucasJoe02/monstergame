@@ -178,7 +178,7 @@ public class SetupPanelControl implements PanelControl{
 				}
 			}
 		});
-		startButton.setBounds(488, 359, 102, 23);
+		startButton.setBounds(476, 359, 114, 23);
 		setupPanel.add(startButton);
 		
 		titleLabel = new JLabel("Setup");
@@ -187,7 +187,7 @@ public class SetupPanelControl implements PanelControl{
 		setupPanel.add(titleLabel);
 		
 		usernameLabel = new JLabel("Username:");
-		usernameLabel.setBounds(10, 36, 74, 14);
+		usernameLabel.setBounds(10, 36, 102, 14);
 		setupPanel.add(usernameLabel);
 		
 		daysLabel = new JLabel("Days:");
@@ -203,11 +203,11 @@ public class SetupPanelControl implements PanelControl{
 		setupPanel.add(diffLabel);
 		
 		difficultyStatusLabel = new JLabel("2");
-		difficultyStatusLabel.setBounds(68, 117, 16, 14);
+		difficultyStatusLabel.setBounds(83, 117, 29, 14);
 		setupPanel.add(difficultyStatusLabel);
 		
 		startMonsLabel = new JLabel("Starter Monster:");
-		startMonsLabel.setBounds(10, 170, 102, 14);
+		startMonsLabel.setBounds(10, 170, 179, 14);
 		setupPanel.add(startMonsLabel);
 		
 		usernameField = new JTextField();

@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
 /**
  * This class implements a controller for a
@@ -109,7 +110,7 @@ public class ArenaPanelControl implements PanelControl{
 		
 		String[] enemyNames = enemyNameList(enemiesList);
 		JList enemyNameList = new JList(enemyNames);
-		enemyNameList.setBounds(10, 80, 302, 53);
+		enemyNameList.setBounds(10, 80, 381, 53);
 		arenaPanel.add(enemyNameList);
 		
 		JButton menuButton = new JButton("Main Menu");
@@ -132,7 +133,7 @@ public class ArenaPanelControl implements PanelControl{
 					String output = game.getArena().battle(selectedEnemyIndex);
 					arenaPanel.setVisible(false);
 					gui.getArenaPanel().setVisible(true);
-					battleOutputLabel.setText(output);
+					battleOutputLabel.setText("<html>"+output);
 				}else if(squadFainted){
 					errorLabel.setText("Cannot fight enemy if all of your monsters are fainted");
 				}else {
@@ -140,7 +141,7 @@ public class ArenaPanelControl implements PanelControl{
 				}
 			}
 		});
-		battleButton.setBounds(10, 178, 211, 23);
+		battleButton.setBounds(10, 178, 302, 23);
 		arenaPanel.add(battleButton);
 		
 		JLabel instructLabel = new JLabel("Select an enemy to fight");
@@ -169,7 +170,7 @@ public class ArenaPanelControl implements PanelControl{
 				}
 			}
 		});
-		viewSquadButton.setBounds(10, 144, 211, 23);
+		viewSquadButton.setBounds(10, 144, 302, 23);
 		arenaPanel.add(viewSquadButton);
 		
 		JLabel battleResultsLabel = new JLabel("Battle Results:");
@@ -177,7 +178,8 @@ public class ArenaPanelControl implements PanelControl{
 		arenaPanel.add(battleResultsLabel);
 		
 		battleOutputLabel = new JLabel("");
-		battleOutputLabel.setBounds(10, 236, 580, 23);
+		battleOutputLabel.setVerticalAlignment(SwingConstants.TOP);
+		battleOutputLabel.setBounds(10, 236, 580, 102);
 		arenaPanel.add(battleOutputLabel);
 	}
 	

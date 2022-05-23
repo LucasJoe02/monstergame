@@ -127,7 +127,7 @@ public class SellShopPanelControl implements PanelControl{
 				}
 			}
 		});
-		sellMonsterButton.setBounds(191, 350, 171, 23);
+		sellMonsterButton.setBounds(191, 350, 200, 23);
 		sellShopPanel.add(sellMonsterButton);
 		
 		JLabel instructLabel = new JLabel("Select an item or monster to sell");

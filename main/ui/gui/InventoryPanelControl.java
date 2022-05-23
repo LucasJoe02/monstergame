@@ -109,7 +109,7 @@ public class InventoryPanelControl implements PanelControl{
 		inventoryPanel.add(useItemButton);
 		
 		JLabel instructLabel = new JLabel("Select an item and a monster to use it on.");
-		instructLabel.setBounds(10, 36, 236, 14);
+		instructLabel.setBounds(10, 36, 483, 14);
 		inventoryPanel.add(instructLabel);
 		
 		JLabel itemsLabel = new JLabel("Items");

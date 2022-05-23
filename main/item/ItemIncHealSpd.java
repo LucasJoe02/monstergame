@@ -42,7 +42,7 @@ public class ItemIncHealSpd implements Item {
 	public ItemIncHealSpd() {
 		name = "Bounce-Back!";
 		increaseAmount = 5;
-		desc = name + " increases your monster's current heal amount, making it possible to regain more health overnight!";
+		desc = name + " increases your monster's current overnight heal amount!";
 		purchasePrice = 10;
 		resellPrice = 5;
 	}

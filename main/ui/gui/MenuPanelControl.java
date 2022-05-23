@@ -65,7 +65,7 @@ public class MenuPanelControl implements PanelControl{
 				gui.getShopPanel().setVisible(true);
 			}
 		});
-		shopButton.setBounds(10, 243, 135, 55);
+		shopButton.setBounds(10, 243, 157, 55);
 		menuPanel.add(shopButton);
 		
 		JButton inventoryButton = new JButton("View Inventory");
@@ -75,7 +75,7 @@ public class MenuPanelControl implements PanelControl{
 				gui.getInventoryPanel().setVisible(true);
 			}
 		});
-		inventoryButton.setBounds(10, 177, 135, 55);
+		inventoryButton.setBounds(10, 177, 157, 55);
 		menuPanel.add(inventoryButton);
 		
 		JButton squadButton = new JButton("View Squad");
@@ -85,7 +85,7 @@ public class MenuPanelControl implements PanelControl{
 				gui.getSquadPanel().setVisible(true);
 			}
 		});
-		squadButton.setBounds(10, 111, 135, 55);
+		squadButton.setBounds(10, 111, 157, 55);
 		menuPanel.add(squadButton);
 		
 		JButton arenaButton = new JButton("Enter Arena");
@@ -95,7 +95,7 @@ public class MenuPanelControl implements PanelControl{
 				gui.getArenaPanel().setVisible(true);
 			}
 		});
-		arenaButton.setBounds(10, 309, 135, 55);
+		arenaButton.setBounds(10, 309, 157, 55);
 		menuPanel.add(arenaButton);
 		
 		JButton sleepButton = new JButton("Sleep");
@@ -120,7 +120,7 @@ public class MenuPanelControl implements PanelControl{
 		
 		JLabel nameLabel = new JLabel(game.getPlayer().getName());
 		nameLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		nameLabel.setBounds(20, 36, 157, 14);
+		nameLabel.setBounds(20, 36, 206, 14);
 		menuPanel.add(nameLabel);
 		
 		JLabel dayLabel = new JLabel("Day: "+game.getDay()+"/"+game.getMaxDays());

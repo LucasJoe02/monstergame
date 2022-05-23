@@ -149,7 +149,7 @@ public class ShopPanelControl implements PanelControl{
 				buyMons(0);
 			}
 		});
-		buyMons0Button.setBounds(100, 173, 89, 23);
+		buyMons0Button.setBounds(89, 173, 100, 23);
 		monsButtons.add(buyMons0Button);
 		buyMons0Button.setVisible(false);
 		shopPanel.add(buyMons0Button);
@@ -173,7 +173,7 @@ public class ShopPanelControl implements PanelControl{
 				buyMons(1);
 			}
 		});
-		buyMons1Button.setBounds(289, 173, 89, 23);
+		buyMons1Button.setBounds(278, 173, 100, 23);
 		monsButtons.add(buyMons1Button);
 		buyMons1Button.setVisible(false);
 		shopPanel.add(buyMons1Button);
@@ -197,7 +197,7 @@ public class ShopPanelControl implements PanelControl{
 				buyMons(2);
 			}
 		});
-		buyMons2Button.setBounds(478, 173, 89, 23);
+		buyMons2Button.setBounds(463, 173, 104, 23);
 		monsButtons.add(buyMons2Button);
 		buyMons2Button.setVisible(false);
 		shopPanel.add(buyMons2Button);
@@ -218,6 +218,7 @@ public class ShopPanelControl implements PanelControl{
 		shopPanel.add(itemPrice0Label);
 		
 		JButton buyItem0Button = new JButton("Purchase");
+		buyItem0Button.setFont(new Font("Dialog", Font.BOLD, 10));
 		buyItem0Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buyItem(0);
@@ -244,6 +245,7 @@ public class ShopPanelControl implements PanelControl{
 		shopPanel.add(itemPrice1Label);
 		
 		JButton buyItem1Button = new JButton("Purchase");
+		buyItem1Button.setFont(new Font("Dialog", Font.BOLD, 10));
 		buyItem1Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buyItem(1);
@@ -270,6 +272,7 @@ public class ShopPanelControl implements PanelControl{
 		shopPanel.add(itemPrice2Label);
 		
 		JButton buyItem2Button = new JButton("Purchase");
+		buyItem2Button.setFont(new Font("Dialog", Font.BOLD, 10));
 		buyItem2Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buyItem(2);
@@ -296,6 +299,7 @@ public class ShopPanelControl implements PanelControl{
 		shopPanel.add(itemPrice3Label);
 		
 		JButton buyItem3Button = new JButton("Purchase");
+		buyItem3Button.setFont(new Font("Dialog", Font.BOLD, 10));
 		buyItem3Button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				buyItem(3);
