@@ -31,7 +31,11 @@ public class GameEnvironment {
 	 * Gold that the user begins with when playing on hard mode.
 	 */
 	static final int HARD_START_GOLD = 10;
-	
+	/**
+	 * Gold given to the player each night;
+	 */
+	static final int NIGHT_COINS_AMOUNT = 10;
+
 	/** 
 	 * User player associated with this game environment.
 	 */
@@ -188,6 +192,7 @@ public class GameEnvironment {
 	
 	/**
 	 * Increases the day by one, refreshes the shop and arena, heals the player's monsters and implements random night events.
+	 * The player receives an amount of coins overnight based on the nightCoinsAmount.
 	 * There is a random chance that a monster in the player's squad will level up.
 	 * There is a low chance a fainted monster will run away during the night if the player has more than one monster.
 	 * There is a low chance a new monster will join the player's squad if the squad is not yet full.
@@ -196,6 +201,7 @@ public class GameEnvironment {
 	 */
 	public String sleep() {
 		increaseDay();
+		player.increaseGold(NIGHT_COINS_AMOUNT);
 		shop.refreshStock();
 		arena.refreshOpponents();
 		player.getSquad().healMonsters();
