@@ -70,7 +70,7 @@ public class ShopPanelControl implements PanelControl{
 		int squadSize = game.getPlayer().getSquad().getMonsters().size();
 		int monsterPrice = game.getShop().getMonsters().get(monsIndex).getPurchasePrice();
 		int playerGold = game.getPlayer().getGold();
-		if ( squadSize < 5 && playerGold >= monsterPrice) {
+		if ( squadSize < 4 && playerGold >= monsterPrice) {
 			game.getShop().purchaseMonster(monsIndex);
 			gui.pickMonsterName(game.getPlayer().getSquad().getMonsters().get(squadSize));
 			shopPanel.setVisible(false);

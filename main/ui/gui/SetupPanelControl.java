@@ -207,7 +207,7 @@ public class SetupPanelControl implements PanelControl{
 		setupPanel.add(difficultyStatusLabel);
 		
 		startMonsLabel = new JLabel("Starter Monster:");
-		startMonsLabel.setBounds(10, 170, 179, 14);
+		startMonsLabel.setBounds(10, 169, 179, 14);
 		setupPanel.add(startMonsLabel);
 		
 		usernameField = new JTextField();
